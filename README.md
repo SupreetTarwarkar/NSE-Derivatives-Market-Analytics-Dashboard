@@ -1,4 +1,4 @@
-# NSE Derivatives Open Interest Analytics Dashboard
+# NSE Derivatives Analytics Dashboard
 
 ## Short Description / Purpose
 
