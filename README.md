@@ -1,20 +1,22 @@
 # NSE Market Analysis Dashboard
 
-## Why I Built This Project
+## Business Questions Addressed
 
-- As a trader, I found that market data such as Open Interest, FII activity, Long / Short Ratio, and delivery data was often viewed separately from price charts.
+- How can NSE market and derivatives data be analyzed together with **candlestick price movement** instead of checking the data and price chart on separate platforms?
 
-- This meant checking the data in one place and then using another platform to compare it with candlestick price movement.
+- What does **FII derivatives activity** indicate when compared with the movement of the underlying index?
 
-- The main purpose of this project was to bring **market data and candlestick charts together on the same screen**, making it easier to understand how changes in positioning, Open Interest, or delivery activity were reflected in price movement.
+- How are **FII, DII, Proprietary, and Client participants** positioned in terms of Long / Short activity?
 
-- I also wanted one place to analyze **FII derivatives activity, participant-wise positioning, Options OI, Futures OI, Long / Short Ratio, and stock delivery data** instead of checking them separately.
+- How are **Options Open Interest and Change in Open Interest** distributed across strike prices and expiries?
 
-- Some platforms provide processed views of metrics such as Long / Short Ratio, Open Interest, and delivery data as paid features, while the underlying EOD reports used in this project are available directly from NSE.
+- What does the **Put-Call Ratio (PCR)** indicate along with the underlying price movement?
 
-I later developed this idea into a Data Analytics project using **Power BI, Power Query, DAX, data modeling, interactive visuals, and custom Power BI visuals**.
+- How does **Futures Open Interest** change with price, and does the combination indicate Long Build Up, Short Build Up, Long Unwinding, or Short Covering?
 
-The dashboard follows a daily EOD workflow. After each NSE trading day, the latest files can be added to the existing source folders and the Power BI report refreshed. The latest-date KPIs and visuals update with the new data, while previous trading-day data remains available for historical comparison.
+- How do **stock delivery quantity and delivery percentage** behave along with stock price movement?
+
+- Can these different NSE EOD datasets be brought into **one dashboard** for easier post-market comparison and analysis?
 
 [View Interactive Power BI Dashboard](PASTE_POWER_BI_LINK_HERE)
 
