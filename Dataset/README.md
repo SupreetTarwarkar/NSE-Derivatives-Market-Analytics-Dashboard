@@ -6,8 +6,6 @@ The dashboard is built for daily post-market analysis. After each trading day, t
 
 ## NSE Files Used
 
-## NSE Files Used
-
 The following four NSE reports are used in the project:
 
 ### 1. Full Bhavcopy and Security Deliverable Data
