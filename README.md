@@ -179,8 +179,7 @@ The custom visuals are also planned to be made available **free of cost** for tr
 - **Collapsible and expandable sidebar using bookmark navigation**
 - **Custom Candlestick / Line switching**
 - **Custom Bar / Line switching**
-- Historical comparison for traders as new trading-day data is added
-
+- Historical comparison for traders as new trading day data is added
 ---
 
 ## Project Walkthrough Video
