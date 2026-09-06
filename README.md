@@ -147,16 +147,12 @@ The custom visuals are also planned to be made available **free of cost** for tr
 
 ### 5. Options Open Interest
 
-- Options data for **F&O symbols, including indices**.
-- Expiry selection.
-- Call Open Interest.
-- Put Open Interest.
-- Change in Call Open Interest.
-- Change in Put Open Interest.
-- Strike-wise OI and Change in OI.
-- Cumulative Open Interest across displayed strikes.
-- Put-Call Ratio (PCR).
-- Underlying price and ATM reference.
+- Options data for **F&O symbols, including indices, along with expiry selection**.
+- **Call and Put Open Interest**.
+- **Change in Call and Put Open Interest**.
+- **Put-Call Ratio (PCR)**.
+- Strike-wise **Open Interest and Change in Open Interest**.
+- **Cumulative Open Interest and Change in Cumulative Open Interest**.
 
 ![Options Open Interest](Images/5.%20Options%20Open%20Interest.png)
 
