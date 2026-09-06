@@ -96,7 +96,7 @@ The custom visuals are also planned to be made available **free of cost** for tr
 
 ### 1. Home
 
-- Displays the **latest available trading-day data**.
+- Displays the **latest available trading day data**.
 - FII Buy Contracts, Sell Contracts, Net Contracts, and Amount values.
 - Latest Long / Short Ratio.
 - NIFTY, BANKNIFTY, and FINNIFTY snapshot.
