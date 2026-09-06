@@ -174,17 +174,12 @@ The custom visuals are also planned to be made available **free of cost** for tr
 
 ## Dashboard Features
 
-- Daily NSE EOD refresh workflow
 - Dynamic latest-date KPIs
-- Seven analytical report pages
 - **Dark and Light theme switching using Power BI bookmarks**
 - **Collapsible and expandable sidebar using bookmark navigation**
-- Interactive page navigation
-- Interactive slicers and filters
-- Candlestick / Line switching
-- Bar / Line switching
-- Custom Power BI market visuals
-- Historical comparison as new trading-day data is added
+- **Custom Candlestick / Line switching**
+- **Custom Bar / Line switching**
+- Historical comparison for traders as new trading-day data is added
 
 ---
 
