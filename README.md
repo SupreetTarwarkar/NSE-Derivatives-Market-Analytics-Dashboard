@@ -4,21 +4,17 @@
 
 - As a trader, I found that market data such as Open Interest, FII activity, Long / Short Ratio, and delivery data was often viewed separately from price charts.
 
-- This made analysis difficult because I had to check the data in one place and then open a separate platform to compare it with the candlestick price movement.
+- This meant checking the data in one place and then using another platform to compare it with candlestick price movement.
 
-- The main idea behind this project was to bring the **market data and candlestick chart together on the same screen**, so I could directly see how changes in positioning, Open Interest, or delivery activity were reflected in price movement.
+- The main purpose of this project was to bring **market data and candlestick charts together on the same screen**, making it easier to understand how changes in positioning, Open Interest, or delivery activity were reflected in price movement.
 
 - I also wanted one place to analyze **FII derivatives activity, participant-wise positioning, Options OI, Futures OI, Long / Short Ratio, and stock delivery data** instead of checking them separately.
 
-- Some platforms provide processed views of metrics such as Long / Short Ratio, Open Interest, and delivery data as paid features, while the underlying EOD reports used in this project are available from NSE.
+- Some platforms provide processed views of metrics such as Long / Short Ratio, Open Interest, and delivery data as paid features, while the underlying EOD reports used in this project are available directly from NSE.
 
-- Instead of depending on multiple platforms, I used the NSE EOD files to build my own analysis workflow in Power BI.
+I later developed this idea into a Data Analytics project using **Power BI, Power Query, DAX, data modeling, interactive visuals, and custom Power BI visuals**.
 
-- The project was later developed further as a Data Analytics project using **Power Query, DAX, data modeling, interactive visuals, and daily data refresh logic**.
-
-- After every trading day, new NSE EOD files can be added and the report refreshed, allowing the latest market data to be compared with previous trading-day history.
-
-### Live Dashboard
+The dashboard follows a daily EOD workflow. After each NSE trading day, the latest files can be added to the existing source folders and the Power BI report refreshed. The latest-date KPIs and visuals update with the new data, while previous trading-day data remains available for historical comparison.
 
 [View Interactive Power BI Dashboard](PASTE_POWER_BI_LINK_HERE)
 
