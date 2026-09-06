@@ -95,23 +95,9 @@ I also plan to make these visuals available **free of cost** for traders who may
 
 ### 1. Home
 
-The Home page provides a quick latest-date market overview.
-
-It includes:
-
-- Buy Contracts
-- Buy Amount
-- Sell Contracts
-- Sell Amount
-- Net Contracts
-- Net Amount
-- EOD Open Interest Contracts
-- EOD Open Interest Amount
-- Latest Long / Short Ratio
-- Index snapshot
-- Stock and delivery snapshot
-- Futures & Options snapshot
-- Last updated date
+- Shows only the **latest available trading-day data**.
+- Gives a quick snapshot of FII activity, Long / Short Ratio, Index, Stock & Delivery, and F&O data.
+- Designed as a single-page market overview before moving into detailed analysis.
 
 ![Home](Images/1.%20Home.png)
 
@@ -119,17 +105,9 @@ It includes:
 
 ### 2. Index Charts
 
-Used to review price movement across major NSE indices using OHLC candlestick charts and volume.
-
-It includes:
-
-- NIFTY
-- BANKNIFTY
-- FINNIFTY
-- Candlestick / Line switching
-- OHLC values
-- Volume
-- Date filtering
+- Shows candlestick charts for **NIFTY, BANKNIFTY, and FINNIFTY**.
+- Used to review index price movement and volume.
+- Focused only on index chart analysis.
 
 ![Index Charts](Images/2.%20Index%20Charts.png)
 
@@ -137,21 +115,9 @@ It includes:
 
 ### 3. FII Derivatives
 
-Used to analyze FII derivatives activity together with index price movement.
-
-It includes:
-
-- Index selection
-- Instrument selection
-- Buy Contracts
-- Sell Contracts
-- Net Contracts
-- Buy / Sell Amount
-- Net Amount
-- Historical FII activity
-- Index price context
-- Candlestick / Line switching
-- Bar / Line switching
+- Shows **index candlestick movement, Net Amount, and Net Contracts together**.
+- Helps compare FII derivatives activity directly with index price movement.
+- Instrument selection allows analysis across different FII derivative categories.
 
 ![FII Derivatives](Images/3.%20FII%20Derivatives.png)
 
@@ -159,19 +125,9 @@ It includes:
 
 ### 4. Long / Short Ratio
 
-Used to compare participant positioning together with index price movement.
-
-It includes:
-
-- FII
-- DII
-- Proprietary
-- Client
-- Long / Short Ratio
-- Future Index Long positions
-- Future Index Short positions
-- Index price movement
-- Date filtering
+- Shows participant positioning based on **Client Type: FII, DII, Proprietary, and Client**.
+- Compares Long / Short positioning with the selected index candlestick chart.
+- Helps understand how participant positioning changes along with index price movement.
 
 ![Long Short Ratio](Images/4.%20LS%20Ratio.png)
 
@@ -179,21 +135,11 @@ It includes:
 
 ### 5. Options Open Interest
 
-Used for strike-wise and expiry-wise Options Open Interest analysis.
-
-It includes:
-
-- Call Open Interest
-- Put Open Interest
-- Change in Call Open Interest
-- Change in Put Open Interest
-- Put-Call Ratio (PCR)
-- Underlying price
-- ATM reference
-- Strike-price analysis
-- Expiry selection
-- Cumulative Open Interest
-- Adjustable strike range
+- Supports Options OI analysis for **F&O symbols, including indices**, based on selected expiry.
+- Shows **Open Interest and Change in Open Interest together** for direct comparison.
+- Strike-wise analysis helps compare Call and Put positioning.
+- Cumulative OI shows the combined Open Interest across the displayed strike prices.
+- PCR and underlying price provide additional context for Options positioning.
 
 ![Options Open Interest](Images/5.%20Options%20Open%20Interest.png)
 
@@ -201,19 +147,14 @@ It includes:
 
 ### 6. Futures Open Interest
 
-Used to analyze futures price movement together with changes in Open Interest.
-
-It includes:
-
-- Futures Open Interest
-- Change in Open Interest
-- OHLC price movement
-- Symbol selection
-- Expiry selection
-- Long Build Up
-- Short Build Up
-- Long Unwinding
-- Short Covering
+- Compares **Futures Open Interest and Change in Open Interest with candlestick price movement**.
+- Supports symbol, expiry, and date selection.
+- Includes OI interpretation directly in the visual:
+  - Long Build Up
+  - Short Build Up
+  - Long Unwinding
+  - Short Covering
+- This makes the price + OI relationship easier to understand quickly.
 
 ![Futures Open Interest](Images/6.%20Future%20Open%20Interest.png)
 
@@ -221,25 +162,13 @@ It includes:
 
 ### 7. Stock & Delivery
 
-Used to analyze stock price movement together with delivery activity.
-
-It includes:
-
-- Stock OHLC movement
-- Volume
-- Total Traded Quantity
-- Delivery Quantity
-- Delivery Percentage
-- Stock search
-- Symbol selection
-- Date filtering
-- Candlestick / Line switching
-- Bar / Line switching
+- Compares **stock candlestick price movement with Delivery Quantity**.
+- Supports stocks from the selected stock universe, including NIFTY 50 stocks used in the dashboard.
+- Bar view shows Delivery Quantity along with price movement.
+- Line view can be used to review **Delivery Percentage** over time.
+- High Delivery Percentage, such as around **75–80% or above**, can be used as a quick reference for strong delivery participation.
 
 ![Stock and Delivery](Images/7.%20Stocks%20Delivery.png)
-
----
-
 ## Dashboard Features
 
 - Daily NSE EOD refresh workflow
