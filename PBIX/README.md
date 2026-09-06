@@ -10,4 +10,3 @@ This project was developed in **Power BI Desktop** and published to **Power BI S
 
 The Power BI project file is approximately **29 MB**, which is above GitHub's browser upload limit.
 
-The project can currently be reviewed through the **interactive Power BI dashboard, screenshots, dataset documentation, and project walkthrough video** available in this repository.
