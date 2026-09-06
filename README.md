@@ -18,7 +18,7 @@
 
 - Can these different NSE EOD datasets be brought into **one dashboard** for easier post-market comparison and analysis?
 
-[View Interactive Power BI Dashboard](PASTE_POWER_BI_LINK_HERE)
+[View Interactive Power BI Dashboard](https://app.powerbi.com/view?r=eyJrIjoiOGViNzk2OWMtMGRjNC00OGRlLWE5N2UtZGFiOGU5YWE5NjRjIiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9)
 
 ---
 
