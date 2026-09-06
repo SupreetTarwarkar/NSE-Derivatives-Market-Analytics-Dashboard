@@ -1,176 +1,265 @@
-# NSE Derivatives Analytics Dashboard
+# NSE Market Analysis Dashboard
 
 ## Short Description / Purpose
 
-End-to-end derivatives analytics solution developed using Power BI, SQL, and NSE Futures & Options data. The dashboard analyzes Open Interest (OI), Change in Open Interest, Long-Short Ratio, Net Contracts, and price movements to identify market positioning, sentiment shifts, and derivative trading opportunities across Index and Stock derivatives.
+A **Power BI dashboard for daily End-of-Day (EOD) analysis of NSE market and derivatives data**.
 
-## Tech Stack
+The main idea behind this project is daily market tracking. After each NSE trading day, the latest EOD files can be added to the existing source folders and the Power BI report can be refreshed. The latest-date KPIs and visuals update with the new data, while previous trading-day data remains available for historical analysis.
 
-The dashboard was built using the following tools and technologies:
+The dashboard is built for **post-market analysis and trading decision support**. It is not a live or intraday streaming dashboard.
 
-- Power BI : Data visualization and reporting
-- SQL : Data extraction and transformation
-- Power Query : Data transformation and cleaning
-- DAX (Data Analysis Expressions) : Measures and business calculations
-- Data Modeling : Relationship management and analytical structure
-- Excel / CSV Files : NSE Derivatives Data Source
+### Live Dashboard
 
-## Data Source
+[View Interactive Power BI Dashboard](PASTE_POWER_BI_LINK_HERE)
 
-The dashboard uses NSE Derivatives (Futures & Options) data containing:
+---
 
-- Index Futures Data
-- Index Options Data
-- Stock Futures Data
-- Stock Options Data
-- Open Interest (OI)
-- Change in Open Interest
-- Long Positions
-- Short Positions
+# Tech Stack
+
+- **Power BI** - Dashboard development and interactive reporting
+- **Power Query** - Cleaning, transforming, and combining daily NSE files
+- **DAX** - KPIs, ratios, latest-date calculations, and analytical measures
+- **Data Modeling** - Connecting market datasets through a common analytical model
+- **Excel / CSV Files** - NSE EOD source data
+- **Custom Power BI Visuals** - Custom visuals developed for market and Open Interest analysis
+
+---
+
+# Data Source
+
+The project uses official **NSE End-of-Day market reports**.
+
+The four main NSE files used are:
+
+1. **Full Bhavcopy and Security Deliverable Data**
+2. **F&O Participant-wise Open Interest**
+3. **F&O FII Derivatives Statistics**
+4. **F&O UDiFF Common Bhavcopy Final**
+
+For this project, I have used around **one month of EOD market data from August 2026 onward** to keep the Power BI file size practical.
+
+Detailed source information and the refresh process are available in the:
+
+[Dataset Documentation](Dataset/README.md)
+
+---
+
+# Daily Refresh Workflow
+
+1. Download the latest EOD files from NSE after the trading day.
+2. Add the new files to the relevant source folders.
+3. Refresh the Power BI report.
+4. Power Query combines the new data with the existing data.
+5. Latest-date KPIs and visuals update automatically.
+6. Previous trading-day data remains available for historical analysis.
+
+---
+
+# Dashboard Pages
+
+## 1. Home
+
+The Home page provides a quick latest-date market overview.
+
+It includes:
+
+- Buy Contracts
+- Buy Amount
+- Sell Contracts
+- Sell Amount
 - Net Contracts
-- Long-Short Ratio
-- Expiry Information
-- Daily Price Data (OHLC)
+- Net Amount
+- EOD Open Interest Contracts
+- EOD Open Interest Amount
+- Latest Long / Short Ratio
+- Index snapshot
+- Stock and delivery snapshot
+- Futures & Options snapshot
+- Last updated date
 
-## Features / Highlights
+![Home](Images/1.%20Home.png)
 
-### Business Problem
+---
 
-Derivative markets generate massive volumes of Futures and Options data every trading day. However, identifying institutional positioning, tracking changes in market sentiment, analyzing Open Interest behavior, and monitoring Long-Short activity can be difficult without a centralized analytics solution.
+## 2. Index Charts
 
-### Goal of the Dashboard
+Used to review price movement across major NSE indices using OHLC candlestick charts and volume.
 
-- Monitor derivative market activity
-- Analyze Open Interest trends
-- Track Change in Open Interest
-- Evaluate Long-Short positioning
-- Identify market sentiment shifts
-- Support data-driven trading decisions
+The page includes:
 
-### Walk Through of Key Visuals
+- NIFTY
+- BANKNIFTY
+- FINNIFTY
+- Candlestick / Line switching
+- OHLC values
+- Volume
+- Date filtering
 
-#### Stock Futures Analytics
+![Index Charts](Images/2.%20Index%20Charts.png)
 
-- Candlestick Price Analysis
-- Number of Trades Analysis
-- Long-Short Ratio Trend
-- Stock Selection Filter
-- Date Range Analysis
-- Symbol-wise Performance Analysis
+---
 
-#### Index Futures Analytics
+## 3. FII Derivatives
 
-- NIFTY Price Trend Analysis
-- Net Contracts by Date
-- Index Futures Positioning
-- Index Options Positioning
-- Open Interest Trend Analysis
-- Market Sentiment Monitoring
+Used to analyze FII activity across derivative instruments.
 
-#### Client Position Analytics
+The page includes:
 
-- Long-Short Ratio Analysis
-- Client-wise Position Tracking
-- Future Index Long Positions
-- Future Index Short Positions
-- Institutional Position Monitoring
-- Historical Position Trend Analysis
+- Index selection
+- Instrument selection
+- Net Amount
+- Net Contracts
+- Historical FII activity
+- Index price context
+- Candlestick / Line switching
+- Bar / Line switching
 
-#### Open Interest Statistics
+![FII Derivatives](Images/3.%20FII%20Derivatives.png)
 
-- Strike-wise Open Interest Analysis
-- Expiry-wise Analysis
-- Call vs Put Open Interest Comparison
-- Open Interest Concentration Zones
-- Support and Resistance Identification
-- Cumulative Open Interest Analysis
+---
 
-#### Change in Open Interest Analytics
+## 4. Long / Short Ratio
 
-- Change in OI Analysis
-- Long Build-Up Detection
-- Short Build-Up Detection
-- Long Unwinding Detection
-- Short Covering Detection
-- Cumulative Change in Open Interest
+Used to compare participant positioning in the derivatives market.
 
-### Business Impact & Insights
+The page includes:
 
-- Identified important support and resistance zones using Open Interest concentration.
-- Tracked institutional positioning through Long-Short Ratio analysis.
-- Enabled monitoring of derivative market sentiment using Futures and Options activity.
-- Improved understanding of market participation through Net Contracts analysis.
-- Helped identify Long Build-Up, Short Build-Up, Long Unwinding, and Short Covering opportunities.
-- Supported trading and market analysis through interactive derivative analytics.
+- FII
+- DII
+- Proprietary
+- Client
+- Long / Short Ratio
+- Future Index Long positions
+- Future Index Short positions
+- Index price movement
+- Date filtering
 
-## Dashboard Screenshots
+![Long Short Ratio](Images/4.%20LS%20Ratio.png)
 
-### Stock Futures Analytics
+---
 
+## 5. Options Open Interest
 
+Used for strike-wise and expiry-wise Options Open Interest analysis.
 
-### Index Futures Analytics
+The page includes:
 
+- Call Open Interest
+- Put Open Interest
+- Change in Call Open Interest
+- Change in Put Open Interest
+- Put-Call Ratio (PCR)
+- ATM reference
+- Strike-price analysis
+- Expiry selection
+- Cumulative Open Interest
+- Adjustable strike range
 
+![Options Open Interest](Images/5.%20Options%20Open%20Interest.png)
 
-### Client Position Analytics
+---
 
+## 6. Futures Open Interest
 
+Used to review futures price movement together with Open Interest activity.
 
-### Open Interest Statistics
+The page includes:
 
+- Futures Open Interest
+- Change in Open Interest
+- OHLC price movement
+- Symbol selection
+- Expiry selection
+- Long Build Up
+- Short Build Up
+- Long Unwinding
+- Short Covering
 
+![Futures Open Interest](Images/6.%20Future%20Open%20Interest.png)
 
-### Stock Open Interest Statistics
+---
 
+## 7. Stock & Delivery
 
+Used to analyze cash-market stock activity together with delivery data.
 
-### Change in Open Interest Statistics
+The page includes:
 
+- Stock OHLC movement
+- Volume
+- Delivery Quantity
+- Delivery Percentage
+- Stock search
+- Symbol selection
+- Date filtering
+- Candlestick / Line switching
+- Bar / Line switching
 
+![Stock and Delivery](Images/7.%20Stocks%20Delivery.png)
 
-### Open Interest Build-Up Analysis
+---
 
+# Custom Power BI Visuals
 
+This report also uses custom Power BI visuals developed specifically for this market-analysis project:
 
-## Dataset
+- **Candlestick by Supreet Tarwarkar**
+- **Bar & Line by Supreet Tarwarkar**
+- **Single Candle by Supreet Tarwarkar**
+- **Options OI by Supreet Tarwarkar**
+- **Futures OI by Supreet Tarwarkar**
 
-The dashboard uses NSE Derivatives datasets containing:
+The visuals are used for OHLC price charts, market trends, Futures Open Interest, and Options Open Interest analysis.
 
-- Index Futures Data
-- Index Options Data
-- Stock Futures Data
-- Stock Options Data
-- Client Position Data
-- Open Interest Data
-- Change in Open Interest Data
+---
 
-Dataset files are available in the Dataset folder of this repository.
+# Dashboard Features
 
-## SQL Scripts
+- Daily EOD refresh workflow
+- Dynamic latest-date KPIs
+- Seven analytical report pages
+- Dark and Light theme switching
+- Collapsible sidebar navigation
+- Interactive slicers and filters
+- Candlestick / Line switching
+- Bar / Line switching
+- Custom Power BI market visuals
+- Historical analysis that grows as new trading-day files are added
 
-The project includes SQL scripts used for data preparation and analysis.
+---
 
-- data_preparation.sql
-  - Data Cleaning
-  - Data Transformation
-  - Open Interest Calculations
-  - Change in Open Interest Calculations
-  - Long-Short Ratio Preparation
+# Project Walkthrough Video
 
-- derivatives_analysis.sql
-  - Open Interest Analysis
-  - Net Contracts Analysis
-  - Long-Short Ratio Analysis
-  - Futures Analysis
-  - Options Analysis
+A complete walkthrough of the dashboard can be viewed here:
 
-SQL files are available in the SQL folder of this repository.
+[Watch Project Walkthrough](PASTE_GOOGLE_DRIVE_VIDEO_LINK_HERE)
 
-## Power BI Report
+The walkthrough covers:
 
-The complete Power BI dashboard file is included in this repository.
+- Dashboard navigation
+- Daily EOD data workflow
+- Index analysis
+- FII derivatives analysis
+- Long / Short positioning
+- Options Open Interest
+- Futures Open Interest
+- Stock & Delivery analysis
+- Custom visuals
+- Dashboard interactions
 
-- NSE_Derivatives_Open_Interest_Analytics_Dashboard.pbix
+---
 
-The PBIX file can be downloaded to explore the report, data model, measures, and visualizations.
+# Power BI Report
+
+The project was developed in **Power BI Desktop** and published to **Power BI Service** for interactive viewing.
+
+The PBIX file is currently larger than GitHub's browser upload limit, so the interactive Power BI report and dashboard screenshots are provided for reviewing the project.
+
+---
+
+# Author
+
+**Supreet Tarwarkar**
+
+- [GitHub](https://github.com/SupreetTarwarkar)
+- [LinkedIn](https://www.linkedin.com/in/supreettarwarkar/)
