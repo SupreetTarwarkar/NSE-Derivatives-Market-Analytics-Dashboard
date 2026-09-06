@@ -48,7 +48,7 @@ The four main NSE files used are:
 3. **F&O FII Derivatives Statistics**
 4. **F&O UDiFF Common Bhavcopy Final**
 
-For this project, I have used around **one month of EOD market data from August 2026 onward** to keep the Power BI file size practical.
+This project uses around **one month of EOD market data from August 2026 onward** to keep the Power BI file size practical.
 
 Detailed information about the NSE files, official source links, data period, and refresh process is available here:
 
@@ -59,25 +59,25 @@ Detailed information about the NSE files, official source links, data period, an
 ## Daily Refresh Workflow
 
 1. The required NSE EOD files generally start becoming available after the trading day.
-2. I usually check for the latest files between **8:00 PM and 9:00 PM IST**.
-3. Once all the required files are available, I add them to the relevant source folders.
-4. Refresh the Power BI report.
+2. The latest files are usually checked between **8:00 PM and 9:00 PM IST**.
+3. Once all the required files are available, they are added to the relevant source folders.
+4. The Power BI report is refreshed.
 5. Power Query combines the new data with the existing historical data.
 6. Latest-date KPIs and visuals update automatically.
 
-> **Note:** If the required NSE files are delayed, I check again and refresh the dashboard by around **7:00 AM IST the next day**, once the data becomes available.
+> **Note:** If the required NSE files are delayed, the dashboard is refreshed by around **7:00 AM IST the next day**, once the data becomes available.
 
 ---
 
 ## Custom Visual Development
 
-Power BI does not include a native candlestick visual that matched the way I wanted to analyze the NSE data. In my testing, the alternatives I tried had limitations such as paid access, delayed data handling, or report performance issues.
+Power BI does not include a native candlestick visual suitable for the requirements of this dashboard. Some available alternatives also had limitations such as paid access, delayed data handling, or report performance issues.
 
-My main requirement was simple: **show candlestick price movement together with market data so both can be analyzed in the same view.**
+The requirement was to **display candlestick price movement together with market data in the same analytical view**.
 
-I used **AI tools, including ChatGPT, to generate, modify, and refine the custom Power BI visual code based on my requirements**.
+**AI tools, including ChatGPT, were used to generate, modify, and refine the custom Power BI visual code.** The visual code was not written manually from scratch.
 
-I did not write the custom visual code from scratch myself. My role was to define what the visuals should do, test each version inside Power BI, identify problems, refine the requirements, and integrate the working visuals into the dashboard.
+The development process focused on defining the visual requirements, testing each version inside Power BI, identifying issues, refining the requirements, and integrating the working visuals into the dashboard.
 
 ### Custom Power BI Visuals Used
 
@@ -87,9 +87,9 @@ I did not write the custom visual code from scratch myself. My role was to defin
 - **Options OI by Supreet Tarwarkar**
 - **Futures OI by Supreet Tarwarkar**
 
-These visuals help bring price movement and market data such as Open Interest, FII activity, volume, and derivatives positioning into the same analytical view.
+These visuals are used to display price movement, Open Interest, FII activity, volume, and derivatives data within the dashboard.
 
-I also plan to make these visuals available **free of cost** for traders who may find them useful.
+The custom visuals are also planned to be made available **free of cost** for traders and Power BI users.
 
 ---
 
@@ -97,9 +97,13 @@ I also plan to make these visuals available **free of cost** for traders who may
 
 ### 1. Home
 
-- Shows only the **latest available trading-day data**.
-- Gives a quick snapshot of FII activity, Long / Short Ratio, Index, Stock & Delivery, and F&O data.
-- Designed as a single-page market overview before moving into detailed analysis.
+- Displays the **latest available trading-day data**.
+- FII Buy Contracts, Sell Contracts, Net Contracts, and Amount values.
+- Latest Long / Short Ratio.
+- NIFTY, BANKNIFTY, and FINNIFTY snapshot.
+- Stock price and delivery snapshot.
+- Futures & Options snapshot.
+- Latest update date.
 
 ![Home](Images/1.%20Home.png)
 
@@ -107,9 +111,10 @@ I also plan to make these visuals available **free of cost** for traders who may
 
 ### 2. Index Charts
 
-- Shows candlestick charts for **NIFTY, BANKNIFTY, and FINNIFTY**.
-- Used to review index price movement and volume.
-- Focused only on index chart analysis.
+- Candlestick charts for **NIFTY, BANKNIFTY, and FINNIFTY**.
+- OHLC price data.
+- Volume data.
+- Candlestick / Line view.
 
 ![Index Charts](Images/2.%20Index%20Charts.png)
 
@@ -117,9 +122,12 @@ I also plan to make these visuals available **free of cost** for traders who may
 
 ### 3. FII Derivatives
 
-- Shows **index candlestick movement, Net Amount, and Net Contracts together**.
-- Helps compare FII derivatives activity directly with index price movement.
-- Instrument selection allows analysis across different FII derivative categories.
+- Selected index candlestick chart.
+- Net Contracts.
+- Net Amount.
+- FII derivative instrument selection.
+- Historical FII derivatives data.
+- Candlestick / Line and Bar / Line views.
 
 ![FII Derivatives](Images/3.%20FII%20Derivatives.png)
 
@@ -127,9 +135,12 @@ I also plan to make these visuals available **free of cost** for traders who may
 
 ### 4. Long / Short Ratio
 
-- Shows participant positioning based on **Client Type: FII, DII, Proprietary, and Client**.
-- Compares Long / Short positioning with the selected index candlestick chart.
-- Helps understand how participant positioning changes along with index price movement.
+- Client Type selection for **FII, DII, Proprietary, and Client**.
+- Long / Short Ratio.
+- Future Index Long positions.
+- Future Index Short positions.
+- Selected index candlestick chart.
+- Historical participant positioning data.
 
 ![Long Short Ratio](Images/4.%20LS%20Ratio.png)
 
@@ -137,11 +148,16 @@ I also plan to make these visuals available **free of cost** for traders who may
 
 ### 5. Options Open Interest
 
-- Supports Options OI analysis for **F&O symbols, including indices**, based on selected expiry.
-- Shows **Open Interest and Change in Open Interest together** for direct comparison.
-- Strike-wise analysis helps compare Call and Put positioning.
-- Cumulative OI shows the combined Open Interest across the displayed strike prices.
-- PCR and underlying price provide additional context for Options positioning.
+- Options data for **F&O symbols, including indices**.
+- Expiry selection.
+- Call Open Interest.
+- Put Open Interest.
+- Change in Call Open Interest.
+- Change in Put Open Interest.
+- Strike-wise OI and Change in OI.
+- Cumulative Open Interest across displayed strikes.
+- Put-Call Ratio (PCR).
+- Underlying price and ATM reference.
 
 ![Options Open Interest](Images/5.%20Options%20Open%20Interest.png)
 
@@ -149,14 +165,17 @@ I also plan to make these visuals available **free of cost** for traders who may
 
 ### 6. Futures Open Interest
 
-- Compares **Futures Open Interest and Change in Open Interest with candlestick price movement**.
-- Supports symbol, expiry, and date selection.
-- Includes OI interpretation directly in the visual:
+- Futures Open Interest.
+- Change in Open Interest.
+- Candlestick price chart.
+- Symbol selection.
+- Expiry selection.
+- Date filter.
+- OI interpretation displayed in the visual:
   - Long Build Up
   - Short Build Up
   - Long Unwinding
   - Short Covering
-- This makes the price + OI relationship easier to understand quickly.
 
 ![Futures Open Interest](Images/6.%20Future%20Open%20Interest.png)
 
@@ -164,14 +183,17 @@ I also plan to make these visuals available **free of cost** for traders who may
 
 ### 7. Stock & Delivery
 
-- Compares **stock candlestick price movement with Delivery Quantity**.
-- Supports stocks from the selected stock universe, including NIFTY 50 stocks used in the dashboard.
-- Bar view shows Delivery Quantity along with price movement.
-- Line view can be used to review **Delivery Percentage** over time.
-- High Delivery Percentage, such as around **75–80% or above**, can be used as a quick reference for strong delivery participation.
+- Stock candlestick price chart.
+- Delivery Quantity.
+- Delivery Percentage.
+- Total Traded Quantity.
+- NIFTY 50 stock selection.
+- Date selection.
+- Bar view for Delivery Quantity.
+- Line view for Delivery Percentage.
+- Candlestick / Line and Bar / Line views.
 
 ![Stock and Delivery](Images/7.%20Stocks%20Delivery.png)
-
 ---
 
 ## Dashboard Features
