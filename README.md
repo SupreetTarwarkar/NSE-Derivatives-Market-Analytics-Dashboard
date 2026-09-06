@@ -51,7 +51,6 @@ The four main NSE files used are:
 This project uses around **one month of EOD market data from August 2026 onward** to keep the Power BI file size practical.
 
 Detailed information about the NSE files, official source links, data period, and refresh process is available here:
-
 ### [Dataset](Dataset/README.md)
 
 ---
