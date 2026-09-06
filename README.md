@@ -191,20 +191,6 @@ A walkthrough of the complete dashboard can be viewed here:
 
 ### [Watch Project Walkthrough](PASTE_GOOGLE_DRIVE_VIDEO_LINK_HERE)
 
-The walkthrough covers:
-
-- Dashboard navigation
-- Daily EOD data workflow
-- Index analysis
-- FII derivatives analysis
-- Long / Short positioning
-- Options Open Interest
-- Futures Open Interest
-- Stock & Delivery analysis
-- Custom visuals
-- Dark / Light theme switching
-- Collapsible sidebar navigation
-
 ---
 
 ## Power BI Report
