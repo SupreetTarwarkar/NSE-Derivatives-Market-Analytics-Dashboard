@@ -221,7 +221,7 @@ A walkthrough of the complete dashboard can be viewed here:
 
 ## Author
 
-**Supreet Tarwarkar**
+**Supreet Jayant Tarwarkar**
 
 - [GitHub](https://github.com/SupreetTarwarkar)
 - [LinkedIn](https://www.linkedin.com/in/supreettarwarkar/)
