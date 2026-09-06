@@ -4,7 +4,7 @@ This project uses **NSE End-of-Day (EOD) market data** downloaded from the offic
 
 The dashboard is built for daily post-market analysis. After each trading day, the latest NSE files can be added to the existing source folders and the Power BI report can be refreshed with the new data.
 
-For this project, I have used approximately **one month of trading data starting from August 2026**. I kept the data period limited so the Power BI file remains manageable and easy to share.
+## NSE Files Used
 
 ## NSE Files Used
 
