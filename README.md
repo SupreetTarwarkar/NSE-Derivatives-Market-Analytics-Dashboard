@@ -21,7 +21,7 @@
 
 ## Dashboard
 
-### [View Interactive Power BI Dashboard](https://app.powerbi.com/view?r=eyJrIjoiOGViNzk2OWMtMGRjNC00OGRlLWE5N2UtZGFiOGU5YWE5NjRjIiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9)
+### [View Interactive Power BI Dashboard](PBIX/README.md)
 
 > This is an **End-of-Day (EOD) market analysis dashboard**, not a live or intraday streaming dashboard.
 
@@ -52,18 +52,21 @@ For this project, I have used around **one month of EOD market data from August 
 
 Detailed information about the NSE files, official source links, data period, and refresh process is available here:
 
-### [Dataset Documentation](Dataset/README.md)
+### [Dataset](Dataset/README.md)
 
 ---
 
 ## Daily Refresh Workflow
 
-1. Download the latest EOD files from NSE after the trading day.
-2. Add the new files to the relevant source folders.
-3. Refresh the Power BI report.
-4. Power Query combines the new data with the existing data.
-5. Latest-date KPIs and visuals update automatically.
-6. Previous trading-day data remains available for historical analysis.
+## Daily Refresh Workflow
+
+1. The required NSE EOD files generally start becoming available after the trading day.
+2. I usually check for the latest files between **8:00 PM and 9:00 PM IST**.
+3. Once all the required files are available, I add them to the relevant source folders.
+4. Refresh the Power BI report.
+5. Power Query combines the new data with the existing historical data.
+6. Latest-date KPIs and visuals update automatically.
+Note : If the required NSE files are delayed, I check again and refresh the dashboard by around **7:00 AM IST the next day**, once the data becomes available.
 
 ---
 
@@ -190,24 +193,6 @@ I also plan to make these visuals available **free of cost** for traders who may
 A walkthrough of the complete dashboard can be viewed here:
 
 ### [Watch Project Walkthrough](PASTE_GOOGLE_DRIVE_VIDEO_LINK_HERE)
-
----
-
-## Power BI Report
-
-The project was developed in **Power BI Desktop** and published to **Power BI Service** for interactive viewing.
-
-The PBIX file is larger than GitHub's browser upload limit, so the **interactive Power BI report, dashboard screenshots, dataset documentation, and project walkthrough** are provided for reviewing the project.
-
----
-
-### Refresh Schedule
-
-I usually check for the required NSE EOD files from around **7:00 PM IST on each trading day** and refresh the dashboard once all the required files are available.
-
-Most days, the refresh can be completed in the evening. Occasionally, one or more NSE files are published later than usual, so the dashboard refresh may be delayed until the required data becomes available, sometimes up to around **11:00 PM IST**.
-
-Once refreshed, the same Power BI link shows the latest available trading-day data.
 
 ---
 
