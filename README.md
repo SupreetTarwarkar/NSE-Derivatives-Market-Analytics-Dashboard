@@ -58,15 +58,14 @@ Detailed information about the NSE files, official source links, data period, an
 
 ## Daily Refresh Workflow
 
-## Daily Refresh Workflow
-
 1. The required NSE EOD files generally start becoming available after the trading day.
 2. I usually check for the latest files between **8:00 PM and 9:00 PM IST**.
 3. Once all the required files are available, I add them to the relevant source folders.
 4. Refresh the Power BI report.
 5. Power Query combines the new data with the existing historical data.
 6. Latest-date KPIs and visuals update automatically.
-Note : If the required NSE files are delayed, I check again and refresh the dashboard by around **7:00 AM IST the next day**, once the data becomes available.
+
+> **Note:** If the required NSE files are delayed, I check again and refresh the dashboard by around **7:00 AM IST the next day**, once the data becomes available.
 
 ---
 
@@ -172,6 +171,9 @@ I also plan to make these visuals available **free of cost** for traders who may
 - High Delivery Percentage, such as around **75–80% or above**, can be used as a quick reference for strong delivery participation.
 
 ![Stock and Delivery](Images/7.%20Stocks%20Delivery.png)
+
+---
+
 ## Dashboard Features
 
 - Daily NSE EOD refresh workflow
