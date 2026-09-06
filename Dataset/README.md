@@ -2,9 +2,9 @@
 
 This project uses **NSE End-of-Day (EOD) market data** downloaded from the official NSE report pages.
 
-The dashboard is designed as a **daily refresh-based market analysis project**. On each NSE trading day, the latest EOD files can be downloaded and added to the existing source folders before refreshing the Power BI report.
+The dashboard is built for daily post-market analysis. After each trading day, the latest NSE files can be added to the existing source folders and the Power BI report can be refreshed with the new data.
 
-For the GitHub portfolio version, the dataset has been limited to approximately **one month of trading data starting from August 2026** to keep the project and Power BI file size manageable.
+For this project, I have used approximately **one month of trading data starting from August 2026**. I kept the data period limited so the Power BI file remains manageable and easy to share.
 
 ## NSE Files Used
 
@@ -19,14 +19,14 @@ https://www.nseindia.com/all-reports
 
 ### 2. F&O Participant-wise Open Interest
 
-Used to analyze participant positioning and Long / Short activity across categories such as FII, DII, Proprietary, and Client.
+Used to analyze participant positioning and Long / Short activity across FII, DII, Proprietary, and Client categories.
 
 Official NSE Derivatives Reports:  
 https://www.nseindia.com/all-reports-derivatives
 
 ### 3. F&O FII Derivatives Statistics
 
-Used for FII derivatives analysis including Buy Contracts, Sell Contracts, Net Contracts, Buy / Sell Amount, and Open Interest statistics.
+Used for FII derivatives analysis such as Buy Contracts, Sell Contracts, Net Contracts, Buy / Sell Amount, and Open Interest.
 
 Official NSE Derivatives Reports:  
 https://www.nseindia.com/all-reports-derivatives
@@ -40,17 +40,17 @@ https://www.nseindia.com/all-reports-derivatives
 
 ## Data Period
 
-The GitHub portfolio version uses approximately **one month of EOD market data from August 2026 onward**.
+For this project, I have used around **one month of EOD market data from August 2026 onward**.
 
-This limited period is used only to keep the repository and Power BI file size manageable. The dashboard architecture supports adding new NSE trading-day files over time.
+The shorter data period is only to keep the Power BI file size practical. The same setup can continue to take new NSE trading-day files as they become available.
 
 ## Daily Refresh Workflow
 
-1. Download the latest EOD files from the official NSE report pages.
+1. Download the latest EOD files from NSE after the trading day.
 2. Add the new files to the relevant source folders.
 3. Refresh the Power BI report.
-4. Power Query combines the latest files with the existing historical data.
+4. Power Query combines the new data with the existing data.
 5. Latest-date KPIs and visuals update automatically.
-6. Historical analysis expands as new trading-day data is added.
+6. Historical data continues to grow with each new trading day.
 
-> This is an **End-of-Day market analysis dashboard**, not a live or intraday streaming dashboard.
+> This is an **End-of-Day market analysis dashboard**, not a live or intraday dashboard.
