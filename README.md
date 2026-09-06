@@ -201,6 +201,16 @@ The PBIX file is larger than GitHub's browser upload limit, so the **interactive
 
 ---
 
+### Refresh Schedule
+
+I usually check for the required NSE EOD files from around **7:00 PM IST on each trading day** and refresh the dashboard once all the required files are available.
+
+Most days, the refresh can be completed in the evening. Occasionally, one or more NSE files are published later than usual, so the dashboard refresh may be delayed until the required data becomes available, sometimes up to around **11:00 PM IST**.
+
+Once refreshed, the same Power BI link shows the latest available trading-day data.
+
+---
+
 ## Author
 
 **Supreet Tarwarkar**
