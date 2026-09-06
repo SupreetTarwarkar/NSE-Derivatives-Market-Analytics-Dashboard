@@ -16,7 +16,6 @@
 
 - How do **stock delivery quantity and delivery percentage** behave along with stock price movement?
 
-
 ---
 
 ## Dashboard
@@ -51,6 +50,7 @@ The four main NSE files used are:
 This project uses around **one month of EOD market data from August 2026 onward** to keep the Power BI file size practical.
 
 Detailed information about the NSE files, official source links, data period, and refresh process is available here:
+
 ### [Dataset](Dataset/README.md)
 
 ---
@@ -72,7 +72,7 @@ Detailed information about the NSE files, official source links, data period, an
 
 Power BI does not include a native candlestick visual suitable for the requirements of this dashboard. Some available alternatives also had limitations such as paid access, delayed data handling, or report performance issues.
 
-The requirement was to **display candlestick price movement together with market data in the same analytical view**.
+The main requirement was to **display candlestick price movement together with market data in the same analytical view**.
 
 **AI tools, including ChatGPT, were used to generate, modify, and refine the custom Power BI visual code.** The visual code was not written manually from scratch.
 
@@ -96,13 +96,9 @@ The custom visuals are also planned to be made available **free of cost** for tr
 
 ### 1. Home
 
-- Displays the **latest available trading day data**.
-- FII Buy Contracts, Sell Contracts, Net Contracts, and Amount values.
-- Latest Long / Short Ratio.
-- NIFTY, BANKNIFTY, and FINNIFTY snapshot.
-- Stock price and delivery snapshot.
-- Futures & Options snapshot.
-- Latest update date.
+- Selection for **Index, Stock Symbol, F&O Symbol, and Expiry**.
+- Displays only the **latest available trading-day KPIs**, including FII activity and Long / Short Ratio.
+- Displays the latest Index, Stock & Delivery, and Futures & Options snapshots.
 
 ![Home](Images/1.%20Home.png)
 
@@ -110,10 +106,9 @@ The custom visuals are also planned to be made available **free of cost** for tr
 
 ### 2. Index Charts
 
-- Candlestick charts for **NIFTY, BANKNIFTY, and FINNIFTY**.
-- OHLC price data.
-- Volume data.
-- Candlestick / Line view.
+- Date range selection for the available EOD data.
+- Candlestick / Line charts for **NIFTY, BANKNIFTY, and FINNIFTY**.
+- Each chart displays **OHLC price data and Volume**.
 
 ![Index Charts](Images/2.%20Index%20Charts.png)
 
@@ -121,12 +116,9 @@ The custom visuals are also planned to be made available **free of cost** for tr
 
 ### 3. FII Derivatives
 
-- Selected index candlestick chart.
-- Net Contracts.
-- Net Amount.
-- FII derivative instrument selection.
-- Historical FII derivatives data.
-- Candlestick / Line and Bar / Line views.
+- Selection for **Index, FII Derivative Instrument, OI Metrics, and Date Range**.
+- First visual displays the selected **Index Candlestick / Line chart**.
+- **Net Amount and Net Contracts** are displayed in separate Bar / Line visuals based on the selected FII derivative instrument.
 
 ![FII Derivatives](Images/3.%20FII%20Derivatives.png)
 
@@ -134,12 +126,10 @@ The custom visuals are also planned to be made available **free of cost** for tr
 
 ### 4. Long / Short Ratio
 
-- Client Type selection for **FII, DII, Proprietary, and Client**.
-- Long / Short Ratio.
-- Future Index Long positions.
-- Future Index Short positions.
-- Selected index candlestick chart.
-- Historical participant positioning data.
+- Selection for **Client Type, Index, and Date Range**.
+- First visual displays the selected **Index Candlestick / Line chart**.
+- Bar view displays **Future Index Long and Short positions**.
+- Line view displays the **Long / Short Ratio in percentage (%)**.
 
 ![Long Short Ratio](Images/4.%20LS%20Ratio.png)
 
@@ -147,12 +137,10 @@ The custom visuals are also planned to be made available **free of cost** for tr
 
 ### 5. Options Open Interest
 
-- Options data for **F&O symbols, including indices, along with expiry selection**.
-- **Call and Put Open Interest**.
-- **Change in Call and Put Open Interest**.
-- **Put-Call Ratio (PCR)**.
-- Strike-wise **Open Interest and Change in Open Interest**.
-- **Cumulative Open Interest and Change in Cumulative Open Interest**.
+- Selection for **F&O Symbol, Expiry, and Date**, with PCR displayed for the selected data.
+- First visual displays **Call and Put Open Interest** across strike prices, along with **Cumulative Open Interest**.
+- Second visual displays **Change in Call and Put Open Interest**, along with **Change in Cumulative Open Interest**.
+- Strike range controls are available for adjusting the displayed strike prices.
 
 ![Options Open Interest](Images/5.%20Options%20Open%20Interest.png)
 
@@ -160,13 +148,9 @@ The custom visuals are also planned to be made available **free of cost** for tr
 
 ### 6. Futures Open Interest
 
-- Futures Open Interest.
-- Change in Open Interest.
-- Candlestick price chart.
-- Symbol selection.
-- Expiry selection.
-- Date filter.
-- OI interpretation displayed in the visual:
+- Selection for **F&O Symbol, Expiry, and Date Range**.
+- **Futures Open Interest and Change in Open Interest are displayed together with the selected symbol's Candlestick / Line price chart for comparison**.
+- The Open Interest visual displays:
   - Long Build Up
   - Short Build Up
   - Long Unwinding
@@ -178,17 +162,14 @@ The custom visuals are also planned to be made available **free of cost** for tr
 
 ### 7. Stock & Delivery
 
-- Stock candlestick price chart.
-- Delivery Quantity.
-- Delivery Percentage.
-- Total Traded Quantity.
-- NIFTY 50 stock selection.
-- Date selection.
-- Bar view for Delivery Quantity.
-- Line view for Delivery Percentage.
-- Candlestick / Line and Bar / Line views.
+- Selection for **Stock Symbol and Date Range**, with stock search available.
+- First visual displays the selected **Stock Candlestick / Line chart with Volume**.
+- Delivery data is displayed below the price chart for comparison with the selected stock's price movement.
+- Bar view displays **Delivery Quantity**.
+- Line view displays **Delivery Percentage (%)**.
 
 ![Stock and Delivery](Images/7.%20Stocks%20Delivery.png)
+
 ---
 
 ## Dashboard Features
