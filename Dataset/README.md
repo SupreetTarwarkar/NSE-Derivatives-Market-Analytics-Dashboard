@@ -36,7 +36,8 @@ The following four NSE reports are used in the project:
 
 * Around **one month of EOD market data from August 2026 onward** is used in this project.
 * The shorter data period is only to keep the Power BI file size practical. The same setup can continue to take new NSE trading-day files as they become available.
-* **Data retention note:** New daily EOD files are added to extend the available market history. If the dataset becomes too large or report performance is affected, older source files may be archived or removed to keep the Power BI file manageable. This may reduce the historical period available in the dashboard.
+
+> **Note:** New daily EOD files are added to extend the available market history. If the dataset becomes too large or report performance is affected, older source files may be archived or removed to keep the Power BI file manageable. This may reduce the historical period available in the dashboard.
 
 ---
 
