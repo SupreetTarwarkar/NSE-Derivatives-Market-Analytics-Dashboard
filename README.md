@@ -1,7 +1,3 @@
-Yes, bhai. Overview will be Section 1, and the main sections will continue in order. The seven dashboard pages will keep their own page numbers. I’ve also carried forward the earlier agreed neutral wording, around 7 PM refresh timing, and data-retention note. All other content and links are kept as supplied.
-
-Edit
-
 # NSE Market Analysis Dashboard
 
 ## 1. Overview
