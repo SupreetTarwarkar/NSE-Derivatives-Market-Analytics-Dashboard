@@ -1,188 +1,146 @@
 # NSE Market Analysis Dashboard
 
-## Business Questions Addressed
+## Overview
 
-* How can NSE market and derivatives data be analyzed together with **candlestick price movement** instead of checking the data and price chart on separate platforms?
+This is an End-of-Day (EOD) market analysis dashboard built in Power BI. It helps analyze daily National Stock Exchange (NSE) cash and derivatives data alongside candlestick price charts on a single screen, rather than checking market numbers and technical charts on separate websites or software.
 
-* What does **FII derivatives activity** indicate when compared with the movement of the underlying index?
-
-* How are **FII, DII, Proprietary, and Client participants** positioned in terms of Long / Short activity?
-
-* How are **Options Open Interest and Change in Open Interest** distributed across strike prices and expiries?
-
-* What does the **Put-Call Ratio (PCR)** indicate along with the underlying price movement?
-
-* How does **Futures Open Interest** change with price, and does the combination indicate Long Build Up, Short Build Up, Long Unwinding, or Short Covering?
-
-* How do **stock delivery quantity and delivery percentage** behave along with stock price movement?
-
----
-
-## Dashboard
+This report is designed for post-market analysis using official daily closing files. It is not an intraday or real-time streaming dashboard.
 
 ### [View Interactive Power BI Dashboard](PBIX/README.md)
 
-> This is an **End-of-Day (EOD) market analysis dashboard**, not a live or intraday streaming dashboard.
+## Business Questions Addressed
 
----
+• How can daily NSE cash and derivatives figures be read alongside actual price candles without switching platforms?
+• What does Foreign Institutional Investor (FII) derivatives activity suggest when compared with index price direction?
+• How are Clients, DIIs, FIIs, and Proprietary desks positioned in terms of Long vs. Short contracts?
+• How is Options Open Interest (OI) and Change in OI spread across strike prices and expiries?
+• What does the Put-Call Ratio (PCR) indicate near key support and resistance zones?
+• How does Futures Open Interest change with price, and does it indicate Long Buildup, Short Buildup, Long Unwinding, or Short Covering?
+• How does security-wise delivery volume and delivery percentage move with cash equity prices?
 
 ## Tech Stack
 
-* **Power BI** - Dashboard development and interactive reporting
-* **Power Query** - Cleaning, transforming, and combining daily NSE files
-* **DAX** - KPIs, ratios, latest-date calculations, and analytical measures
-* **Data Modeling** - Connecting market datasets through a common analytical model
-* **Excel / CSV Files** - NSE End-of-Day source data
+• **Power BI Desktop:** Dashboard design, layout, and visual interactions
+• **Power Query:** Importing, cleaning, and appending daily NSE source files
+• **DAX:** Calculating KPIs, Long/Short ratios, net contract changes, and latest-day filters
+• **Data Modeling:** Relationships between participant files, Bhavcopy data, and contract details
+• **Excel / CSV:** Raw source data from the National Stock Exchange of India
+• **Custom Visuals:** Built custom `.pbiviz` visuals using TypeScript and D3.js (developed with the help of AI tools)
 
----
+## Data Sources
 
-## Data Source
+This dashboard uses four official End-of-Day reports published daily by the National Stock Exchange of India (NSE):
 
-This project uses official **NSE End-of-Day (EOD) market reports**.
+1. **Full Bhavcopy and Security Deliverable Data (`sec_bhavdata_full`):** Contains trade volumes, deliverable quantities, and delivery percentages.
+2. **F&O Participant-wise Open Interest (`fao_participant_oi`):** Daily open contracts for Clients, DIIs, FIIs, and Pros across futures and options.
+3. **F&O FII Derivatives Statistics (`fii_stats`):** Daily buy/sell values and open contracts across index and stock derivatives.
+4. **F&O UDiFF Common Bhavcopy Final:** Contract-level strike prices, settlement prices, and open interest.
 
-The four main NSE files used are:
-
-1. **Full Bhavcopy and Security Deliverable Data**
-2. **F&O Participant-wise Open Interest**
-3. **F&O FII Derivatives Statistics**
-4. **F&O UDiFF Common Bhavcopy Final**
-
-This project uses around **one month of EOD market data from August 2026 onward** to keep the Power BI file size practical.
-
-Detailed information about the NSE files, official source links, data period, and refresh process is available here:
+To keep the Power BI file size practical and performance smooth, this project uses a rolling window of market data from August 2026 onward.
 
 ### [Dataset](Dataset/README.md)
 
----
-
 ## Daily Refresh Workflow
 
-1. The required NSE EOD files generally start becoming available after the trading day.
-2. The latest files are usually checked between **8:00 PM and 9:00 PM IST**.
-3. Once all the required files are available, they are added to the relevant source folders.
-4. The Power BI Desktop report is refreshed.
-5. Power Query combines the new data with the existing historical data.
-6. Latest-date KPIs and visuals update automatically.
-7. The updated report is republished to **Power BI Service**, and the latest available trading date is verified.
+1. The required NSE files are released after market hours, usually checked between 8:00 PM and 9:00 PM IST.
+2. Downloaded CSV and Excel files are placed into their respective source folders.
+3. The report is refreshed in Power BI Desktop.
+4. Power Query combines the new day's rows with the existing historical data.
+5. All latest-date KPI cards, Long/Short ratios, and charts update automatically.
+6. The updated workbook is republished to Power BI Service.
 
-> **Note:** If the required NSE files are delayed, they are checked again around **7:00 AM IST the next day**. The dashboard is refreshed once the required data becomes available.
+*Note: If the exchange delays file publishing in the evening, the files are checked again around 7:00 AM IST the next morning before market open, and the report is refreshed then.*
 
----
+## Why Custom Visuals Were Needed
 
-## Custom Visual Development
+Power BI does not come with a native candlestick chart that can easily display both price candles and market indicators (like volume, delivery percentage, or open interest) on the same synchronized date axis.
 
-Power BI does not include a native candlestick visual suitable for the requirements of this dashboard. Some available alternatives also had limitations such as paid access, delayed data handling, or report performance issues.
+Third-party visuals in the store often had paid watermarks, slow performance, or could not align market dates properly across trading holidays. When stacking two standard charts, the dates on the top and bottom would often drift out of sync.
 
-The main requirement was to **display candlestick price movement together with market data in the same analytical view**.
+To solve this, I designed and built five custom Power BI visual packages using AI assistance (ChatGPT) to generate and troubleshoot the TypeScript code:
 
-**AI tools, including ChatGPT, were used to generate, modify, and refine the custom Power BI visual code.** The visual code was not written manually from scratch.
+• **Candlestick by Supreet Tarwarkar:** Displays OHLC candlestick price movement with previous-day close change and volume.
+• **Bar & Line by Supreet Tarwarkar:** A dual-axis visual with smooth Bar/Line toggles and synchronized crosshairs.
+• **Options OI by Supreet Tarwarkar:** Displays Call and Put Open Interest and centers automatically around the nearest At-The-Money (ATM) strike price.
+• **Futures OI by Supreet Tarwarkar:** Combines price movement with futures open interest bars, color-coded by market interpretation (Long Buildup, Short Buildup, Long Unwinding, Short Covering).
+• **Single Candle by Supreet Tarwarkar:** A lightweight card widget to show the latest candle on the overview page.
 
-The development process focused on defining the visual requirements, testing each version inside Power BI, identifying issues, refining the requirements, and integrating the working visuals into the dashboard.
-
-### Custom Power BI Visuals Used
-
-* **Candlestick by Supreet Tarwarkar**
-* **Bar & Line by Supreet Tarwarkar**
-* **Single Candle by Supreet Tarwarkar**
-* **Options OI by Supreet Tarwarkar**
-* **Futures OI by Supreet Tarwarkar**
-
-These visuals are used to display price movement, Open Interest, FII activity, volume, and derivatives data within the dashboard.
-
-The custom visuals are also planned to be made available **free of cost** for traders and Power BI users.
-
----
+My role was defining the exact market logic, testing each version inside Power BI, fixing visual alignment issues, and integrating the working builds into the dashboard.
 
 ## Dashboard Pages
 
 ### 1. Home
 
-* Selection for **Index, Stock Symbol, F&O Symbol, and Expiry**.
-* Displays only the **latest available trading-day KPIs**, including FII activity and Long / Short Ratio.
-* Displays the latest Index, Stock & Delivery, and Futures & Options snapshots.
+• Filters for Index, Stock Symbol, F&O Symbol, and Expiry.
+• Shows latest trading-day KPIs, FII net positions, and Long/Short ratios.
+• High-level summary cards for the cash market, index, and derivatives.
 
----
+![Home](Images/1.%20Home.png)
 
 ### 2. Index Futures
 
-* Selection for **Index Futures Symbol, Expiry, and Date Range**.
-* Candlestick / Line price chart displaying **OHLC price data and Volume** for the selected index futures contract.
-* **Futures Open Interest and Change in Open Interest** are displayed together with the price chart for comparison.
-* The Open Interest visual displays **Long Build Up, Short Build Up, Long Unwinding, and Short Covering**.
+• Candlestick and Line chart showing OHLC price and volume for index futures.
+• Open Interest and Change in Open Interest placed with the price chart for comparison.
+• Buildup classification showing whether moves are driven by fresh positions or covering.
 
----
+![Index Futures](Images/2.%20Index%20Charts.png)
 
 ### 3. FII Derivatives
 
-* Selection for **Index, FII Derivative Instrument, OI Metrics, and Date Range**.
-* First visual displays the selected **Index Candlestick / Line chart**.
-* **Net Amount and Net Contracts** are displayed in separate Bar / Line visuals based on the selected FII derivative instrument.
+• Dedicated page tracking Foreign Institutional Investor activity across Index Futures, Stock Futures, Calls, and Puts.
+• View toggles between Net Amount (in Crores) and Net Contracts.
 
----
+![FII Derivatives](Images/3.%20FII%20Derivatives.png)
 
 ### 4. Long / Short Ratio
 
-* Selection for **Client Type, Index, and Date Range**.
-* First visual displays the selected **Index Candlestick / Line chart**.
-* Bar view displays **Future Index Long and Short positions**.
-* Line view displays the **Long / Short Ratio in percentage (%)**.
+• Shows client-wise positioning (Client, DII, FII, Pro).
+• Bar view shows absolute Long and Short open interest.
+• Line view shows the Long-to-Short percentage ratio plotted against index price.
 
----
+![Long Short Ratio](Images/4.%20LS%20Ratio.png)
 
 ### 5. Options Open Interest
 
-* Selection for **F&O Symbol, Expiry, and Date**, with PCR displayed for the selected data.
-* First visual displays **Call and Put Open Interest** across strike prices, along with **Cumulative Open Interest**.
-* Second visual displays **Change in Call and Put Open Interest**, along with **Change in Cumulative Open Interest**.
-* Strike range controls are available for adjusting the displayed strike prices.
+• Strike-wise Call OI and Put OI with Cumulative Open Interest.
+• Separate visual for Change in Call/Put OI and Change in Cumulative OI.
+• Range buttons to focus on $\pm 10$, $\pm 20$, $\pm 30$, $\pm 40$, or $\pm 50$ strikes from the spot close.
+• Put-Call Ratio (PCR) indicator for the selected expiry.
 
----
+![Options Open Interest](Images/5.%20Options%20Open%20Interest.png)
 
 ### 6. Stock Futures
 
-* Selection for **Stock Futures Symbol, Expiry, and Date Range**.
-* **Futures Open Interest and Change in Open Interest are displayed together with the selected stock futures contract's Candlestick / Line price chart for comparison**.
-* The Open Interest visual displays **Long Build Up, Short Build Up, Long Unwinding, and Short Covering**.
-* This page is dedicated to **stock futures**; index futures are displayed separately on the Index Futures page.
+• Contract-level price action and Open Interest comparison for individual F&O stocks.
+• Displays Long Buildup, Short Buildup, Long Unwinding, and Short Covering for single-stock contracts.
 
----
+![Stock Futures](Images/6.%20Future%20Open%20Interest.png)
 
 ### 7. Stock & Delivery
 
-* Selection for **Stock Symbol and Date Range**, with stock search available.
-* First visual displays the selected **Stock Candlestick / Line chart with Volume**.
-* Delivery data is displayed below the price chart for comparison with the selected stock's price movement.
-* Bar view displays **Delivery Quantity**.
-* Line view displays **Delivery Percentage (%)**.
+• Filters for cash segment stocks with a search bar.
+• Correlates daily stock price candles with deliverable volume and delivery percentage.
+• Helps distinguish between intraday trading volume and genuine delivery-based buying or selling.
 
----
+![Stock and Delivery](Images/7.%20Stocks%20Delivery.png)
 
-## Dashboard Screenshots
+## Key Features
 
----
-
-## Dashboard Features
-
-* Dynamic latest-date KPIs
-* **Dark and Light theme switching using Power BI bookmarks**
-* **Collapsible and expandable sidebar using bookmark navigation**
-* **Custom Candlestick / Line switching**
-* **Custom Bar / Line switching**
-* Historical comparison for traders as new trading day data is added
-
----
+• Dynamic KPI cards that automatically reflect the latest trading date.
+• Dark and Light theme options using bookmarks.
+• Collapsible navigation sidebar for clean viewing.
+• In-visual mode switching between bars and lines.
+• Custom visual controls for strike range and axis headroom.
 
 ## Project Walkthrough Video
 
-A walkthrough of the complete dashboard can be viewed here:
+A full video walkthrough explaining how to read the data, navigate the pages, and use the dashboard is available here:
 
-### [Watch Project Walkthrough](PASTE_GOOGLE_DRIVE_VIDEO_LINK_HERE)
-
----
+[Link to Walkthrough Video](PASTE_GOOGLE_DRIVE_VIDEO_LINK_HERE)
 
 ## Author
 
 **Supreet Jayant Tarwarkar**
 
-* [GitHub](https://github.com/SupreetTarwarkar)
-* [LinkedIn](https://www.linkedin.com/in/supreettarwarkar/)
+• LinkedIn: [Supreet Jayant Tarwarkar](https://www.linkedin.com/in/supreettarwarkar/)
+• GitHub: [SupreetTarwarkar](https://github.com/SupreetTarwarkar)
