@@ -152,11 +152,16 @@ My role was defining the exact market logic, testing each version inside Power B
 
 ## Key Features
 
+* Price and market indicators displayed together for direct comparison on the same screen.
 * Dynamic KPI cards that automatically reflect the latest trading date.
+* Interactive filters for symbols, expiries, and date ranges.
+* Candlestick / Line and Bar / Line switching for viewing data in different chart modes.
+* Crosshair and hover details for reading chart values.
+* Custom visual controls for adjusting the displayed strike range and chart spacing.
 * Dark and Light theme options using bookmarks.
 * Collapsible navigation sidebar for clean viewing.
-* In-visual mode switching between bars and lines.
-* Custom visual controls for strike range and axis headroom.
+* Historical market data is extended as new daily EOD files are added.
+
 
 ---
 
