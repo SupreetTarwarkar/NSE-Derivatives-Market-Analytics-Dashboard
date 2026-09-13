@@ -18,29 +18,29 @@ This report is designed for post-market analysis using official daily closing fi
 
 * How are Clients, DIIs, FIIs, and Proprietary desks positioned in terms of Long vs. Short contracts?
 
-* How is Options Open Interest (OI) and Change in OI spread across strike prices and expiries?
+* How is Options Open Interest (OI) and Change in OI distributed across strike prices and expiries?
 
-* What does the Put-Call Ratio (PCR) indicate near key support and resistance zones?
+* What does the Put-Call Ratio (PCR) indicate alongside Call and Put Open Interest?
 
 * How does Futures Open Interest change with price, and does it indicate Long Buildup, Short Buildup, Long Unwinding, or Short Covering?
 
-* How does security-wise delivery volume and delivery percentage move with cash equity prices?
+* How do security-wise delivery quantity and delivery percentage move with cash equity prices?
 
 ---
 
 ## 3. Tech Stack
 
-* **Power BI Desktop:** Dashboard design, layout, and visual interactions
+* **Power BI Desktop:** Dashboard design, layout, visual interactions, bookmarks, and report development
 
-* **Power Query:** Importing, cleaning, and appending daily NSE source files
+* **Power Query:** Importing, cleaning, transforming, and appending daily NSE source files
 
-* **DAX:** Calculating KPIs, Long/Short ratios, net contract changes, and latest-day filters
+* **DAX:** Calculating KPIs, Long/Short ratios, PCR, Open Interest metrics, and latest-date calculations
 
-* **Data Modeling:** Relationships between participant files, Bhavcopy data, and contract details
+* **Data Modeling:** Relationships between participant data, Bhavcopy data, index data, and date tables
 
-* **Excel / CSV:** Raw source data from the National Stock Exchange of India
+* **Excel / CSV:** Raw End-of-Day source data from the National Stock Exchange of India
 
-* **Custom Visuals:** Built custom `.pbiviz` visuals using TypeScript and D3.js (developed with the help of AI tools)
+* **Custom Visuals:** Custom `.pbiviz` visuals developed with TypeScript-based Power BI visual development and AI assistance
 
 ---
 
@@ -48,13 +48,13 @@ This report is designed for post-market analysis using official daily closing fi
 
 This dashboard uses four official End-of-Day reports published daily by the National Stock Exchange of India (NSE):
 
-* **Full Bhavcopy and Security Deliverable Data (**`**sec_bhavdata_full**`**):** Contains trade volumes, deliverable quantities, and delivery percentages.
+* **Full Bhavcopy and Security Deliverable Data (`sec_bhavdata_full`):** Contains stock price, traded quantity, deliverable quantity, and delivery percentage data.
 
-* **F&O Participant-wise Open Interest (**`**fao_participant_oi**`**):** Daily open contracts for Clients, DIIs, FIIs, and Pros across futures and options.
+* **F&O Participant-wise Open Interest (`fao_participant_oi`):** Contains participant-wise Open Interest for Client, DII, FII, and Proprietary categories.
 
-* **F&O FII Derivatives Statistics (**`**fii_stats**`**):** Daily buy/sell values and open contracts across index and stock derivatives.
+* **F&O FII Derivatives Statistics (`fii_stats`):** Contains FII Buy Contracts, Sell Contracts, Net Contracts, Buy / Sell Amount, and Open Interest data across derivative instruments.
 
-* **F&O UDiFF Common Bhavcopy Final:** Contract-level strike prices, settlement prices, and open interest.
+* **F&O UDiFF Common Bhavcopy Final:** Contains contract-level Futures and Options price, Open Interest, Change in Open Interest, expiry, strike price, and related derivatives data.
 
 To keep the Power BI file size practical and performance smooth, this project uses around **one month of EOD market data from August 2026 onward**.
 
@@ -72,35 +72,37 @@ To keep the Power BI file size practical and performance smooth, this project us
 
 * The report is refreshed in Power BI Desktop.
 
-* Power Query combines the new day's rows with the existing historical data.
+* Power Query combines the new data with the existing historical data.
 
-* All latest-date KPI cards, Long/Short ratios, and charts update automatically.
+* Latest-date KPI cards and visuals update with the newly added trading-day data.
 
 * The updated report is republished to Power BI Service, and the latest available trading date is verified.
 
-> *Note: If the required NSE files are delayed, they are checked again around 7:00 AM IST the next day. The dashboard is refreshed once the required data becomes available.*
+> *Note: If the required NSE files are delayed, they are checked again around **7:00 AM IST the next day**. The dashboard is refreshed once the required data becomes available.*
 
 ---
 
 ## 6. Why Custom Visuals Were Needed
 
-Power BI does not come with a native candlestick chart that can easily display both price candles and market indicators (like volume, delivery percentage, or open interest) on the same synchronized date axis.
+Power BI does not include a native candlestick visual suitable for the requirements of this dashboard, especially where price movement needs to be compared directly with Volume, Open Interest, delivery data, and other market indicators.
 
-Third-party visuals in the store often had paid watermarks, slow performance, or could not align market dates properly across trading holidays. When stacking two standard charts, the dates on the top and bottom would often drift out of sync.
+Third-party alternatives were also tested, but some had limitations such as paid access, performance issues, or difficulty maintaining consistent date alignment between stacked market visuals.
 
-To solve this, five custom Power BI visual packages were designed and built using AI assistance (ChatGPT) to generate and troubleshoot the TypeScript code:
+The main requirement was to display **candlestick price movement and related market data together in the same analytical view**.
 
-* **Candlestick by Supreet Tarwarkar:** Displays OHLC candlestick price movement with previous-day close change and volume.
+Five custom Power BI visual packages were developed with AI assistance, including ChatGPT, to generate, modify, and troubleshoot the visual code.
 
-* **Bar & Line by Supreet Tarwarkar:** A dual-axis visual with smooth Bar/Line toggles and synchronized crosshairs.
+* **Candlestick by Supreet Tarwarkar:** Displays OHLC Candlestick / Line price movement with Volume and additional market metrics.
 
-* **Options OI by Supreet Tarwarkar:** Displays Call and Put Open Interest and centers automatically around the nearest At-The-Money (ATM) strike price.
+* **Bar & Line by Supreet Tarwarkar:** Displays market metrics using Bar / Line modes for direct comparison with price charts.
 
-* **Futures OI by Supreet Tarwarkar:** Combines price movement with futures open interest bars, color-coded by market interpretation (Long Buildup, Short Buildup, Long Unwinding, Short Covering).
+* **Options OI by Supreet Tarwarkar:** Displays Call and Put Open Interest, Change in Open Interest, ATM reference, strike-range controls, and related Options data.
 
-* **Single Candle by Supreet Tarwarkar:** A lightweight card widget to show the latest candle on the overview page.
+* **Futures OI by Supreet Tarwarkar:** Displays Futures Open Interest and Change in Open Interest with Long Buildup, Short Buildup, Long Unwinding, and Short Covering classification.
 
-The development process involved defining the exact market logic, testing each version inside Power BI, fixing visual alignment issues, and integrating the working builds into the dashboard.
+* **Single Candle by Supreet Tarwarkar:** Displays the latest trading-day OHLC candle used on the Overview page.
+
+The development process involved defining the market requirements, testing each version inside Power BI, identifying visual and alignment issues, refining the requirements, and integrating the working builds into the dashboard.
 
 ---
 
@@ -108,69 +110,115 @@ The development process involved defining the exact market logic, testing each v
 
 ### 1. Home
 
-* Filters for Index, Stock Symbol, F&O Symbol, and Expiry.
+* Filters for **Index Futures, Index Expiry, Stock Futures, Stock Expiry, Cash Market Symbol, FII Derivative Instrument, and Participant Type**.
 
-* Shows latest trading-day KPIs, FII net positions, and Long/Short ratios.
+* Displays the latest available trading-day FII KPIs including Buy Contracts, Buy Amount, Sell Contracts, Sell Amount, Net Contracts, Net Amount, EOD OI Contracts, and EOD OI Amount.
 
-* High-level summary cards for the cash market, index, and derivatives.
+* Displays the latest Long / Short Ratio for the selected participant type.
+
+* Displays latest Index Futures, Stock Futures, and Cash Market price snapshots using Single Candle visuals.
+
+* Displays related Futures Open Interest, Change in Futures Open Interest, OI Interpretation, PCR, Delivery Quantity, and Delivery Percentage values.
+
+![Home](Images/1.%20Home.png)
 
 ---
 
 ### 2. Index Futures
 
-* Candlestick and Line chart showing OHLC price and volume for index futures.
+* Filters for **Index Futures Symbol, Expiry, and Date Range**.
 
-* Open Interest and Change in Open Interest placed with the price chart for comparison.
+* Candlestick / Line chart displays OHLC price movement and Volume for the selected index futures contract.
 
-* Buildup classification showing whether moves are driven by fresh positions or covering.
+* Futures Open Interest and Change in Open Interest are displayed together with the price chart for direct comparison.
+
+* OI Interpretation classifies the selected futures movement as **Long Buildup, Short Buildup, Long Unwinding, or Short Covering**.
+
+![Index Futures](Images/2.%20Index%20Futures.png)
 
 ---
 
 ### 3. FII Derivatives
 
-* Dedicated page tracking Foreign Institutional Investor activity across Index Futures, Stock Futures, Calls, and Puts.
+* Filters for **Index, FII Derivative Instrument, Metrics, and Date Range**.
 
-* View toggles between Net Amount (in Crores) and Net Contracts.
+* Displays the selected Index Candlestick / Line price chart.
+
+* Two Bar / Line analytical visuals allow different FII metrics to be compared with the selected index price movement.
+
+* Available FII analysis includes Buy, Sell, Net, and End-of-Day Open Interest data across Contracts and Amount-based metrics.
+
+![FII Derivatives](Images/3.%20FII%20Derivatives.png)
 
 ---
 
 ### 4. Long / Short Ratio
 
-* Shows client-wise positioning (Client, DII, FII, Pro).
+* Filters for **Client Type, Index, and Date Range**.
 
-* Bar view shows absolute Long and Short open interest.
+* Displays the selected Index Candlestick / Line price chart.
 
-* Line view shows the Long-to-Short percentage ratio plotted against index price.
+* Bar view displays **Future Index Long and Future Index Short positions**.
+
+* Line view displays the **Long / Short Ratio in percentage (%)** for the selected participant category.
+
+* Participant categories include **Client, DII, FII, and Proprietary**.
+
+![Long Short Ratio](Images/4.%20LS%20Ratio.png)
 
 ---
 
 ### 5. Options Open Interest
 
-* Strike-wise Call OI and Put OI with Cumulative Open Interest.
+* Filters for **F&O Symbol, Expiry, and Date**.
 
-* Separate visual for Change in Call/Put OI and Change in Cumulative OI.
+* Displays **Call Open Interest and Put Open Interest** across strike prices.
 
-* Range buttons to focus on $\pm 10$, $\pm 20$, $\pm 30$, $\pm 40$, or $\pm 50$ strikes from the spot close.
+* Displays separate **Change in Call Open Interest and Change in Put Open Interest** analysis.
 
-* Put-Call Ratio (PCR) indicator for the selected expiry.
+* Cumulative Call and Put Open Interest are displayed alongside the strike-wise charts.
+
+* ATM reference is displayed on both Open Interest visuals.
+
+* Strike-range controls allow the displayed range to be adjusted to **±10, ±20, ±30, ±40, or ±50 strikes around ATM**.
+
+* Put-Call Ratio (PCR) is displayed for the selected data.
+
+![Options Open Interest](Images/5.%20Options%20Open%20Interest.png)
 
 ---
 
 ### 6. Stock Futures
 
-* Contract-level price action and Open Interest comparison for individual F&O stocks.
+* Filters for **Stock Futures Symbol, Expiry, and Date Range**.
 
-* Displays Long Buildup, Short Buildup, Long Unwinding, and Short Covering for single-stock contracts.
+* Displays the selected Stock Futures Candlestick / Line price chart with Volume.
+
+* Futures Open Interest and Change in Open Interest are displayed with the selected stock futures price for comparison.
+
+* OI Interpretation classifies the selected stock futures movement as **Long Buildup, Short Buildup, Long Unwinding, or Short Covering**.
+
+* This page is dedicated to **individual F&O stock futures**, while index futures are analyzed separately on the Index Futures page.
+
+![Stock Futures](Images/6.%20Stock%20Futures.png)
 
 ---
 
 ### 7. Stock & Delivery
 
-* Filters for cash segment stocks with a search bar.
+* Filters for **Stock Symbol and Date Range**, with stock search available.
 
-* Correlates daily stock price candles with deliverable volume and delivery percentage.
+* Displays the selected cash-market Stock Candlestick / Line chart with Volume.
 
-* Helps distinguish between intraday trading volume and genuine delivery-based buying or selling.
+* Delivery data is displayed below the price chart for direct comparison with price movement.
+
+* Bar view displays **Delivery Quantity**.
+
+* Line view displays **Delivery Percentage (%)**.
+
+* Delivery data helps evaluate the level of delivery-based participation alongside price and traded volume; it does not by itself indicate buying or selling direction.
+
+![Stock and Delivery](Images/7.%20Stocks%20Delivery.png)
 
 ---
 
@@ -178,19 +226,23 @@ The development process involved defining the exact market logic, testing each v
 
 * Price and market indicators displayed together for direct comparison on the same screen.
 
-* Dynamic KPI cards that automatically reflect the latest trading date.
+* Dynamic KPI cards that automatically reflect the latest available trading date.
 
-* Interactive filters for symbols, expiries, and date ranges.
+* Interactive filters for symbols, expiries, participant categories, instruments, metrics, and date ranges.
 
 * Candlestick / Line and Bar / Line switching for viewing data in different chart modes.
 
 * Crosshair and hover details for reading chart values.
 
-* Custom visual controls for adjusting the displayed strike range and chart spacing.
+* ATM reference and adjustable strike-range controls for Options Open Interest analysis.
 
-* Dark and Light theme options using bookmarks.
+* Futures Open Interest interpretation using Long Buildup, Short Buildup, Long Unwinding, and Short Covering.
 
-* Collapsible navigation sidebar for clean viewing.
+* Dark and Light theme switching using Power BI bookmarks.
+
+* Collapsible and expandable navigation sidebar using bookmarks.
+
+* Contextual information buttons with metric definitions and **How to Read It** guidance across the dashboard.
 
 * Historical market data is extended as new daily EOD files are added.
 
