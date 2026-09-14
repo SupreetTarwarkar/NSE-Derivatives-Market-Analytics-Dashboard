@@ -224,15 +224,6 @@ Examples included:
 
 - The same visual could then be reused for different latest-market snapshots on the Home page.
 
-### Custom Visual Development Summary
-
-| Custom Visual | Approx. Test Builds |
-|---|---:|
-| Candlestick | 25–26 |
-| Bar & Line | 18–20 |
-| Options OI | 10–12 |
-| Futures OI | 10–13 |
-| Single Candle | 4–5 |
 
 ### Visual Development Journey
 
