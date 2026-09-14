@@ -266,7 +266,7 @@ The development process involved defining the market requirements, testing each 
 
 A full video walkthrough explaining how to read the data, navigate the pages, and use the dashboard is available here:
 
-[Link to Walkthrough Video](PASTE_GOOGLE_DRIVE_VIDEO_LINK_HERE)
+[Link to Walkthrough Video](https://drive.google.com/file/d/1b5joltMGyvu1zLb04pjtTNFVJI_DRRML/view?usp=sharing)
 
 ---
 
