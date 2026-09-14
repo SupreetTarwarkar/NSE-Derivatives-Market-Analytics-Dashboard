@@ -112,17 +112,15 @@ The development process involved defining the market requirements, testing each 
 
 ### 1. Home
 
-* Designed as a **latest available trading-day snapshot**, based on the **Last Updated** date shown on the page. Historical dates are analyzed on the detailed pages rather than on Home.
+The Home page is designed as a **latest available trading-day snapshot**, based on the **Last Updated** date shown on the report. It brings together three areas on one screen:
 
-* Filters for **Index Futures, Index Expiry, Stock Futures, Stock Expiry, Cash Market Symbol, FII Derivative Instrument, and Participant Type**.
+* **FII Derivatives KPIs:** The derivative instrument can be changed to analyse Buy, Sell, Net, and End-of-Day Open Interest activity across the latest available data.
 
-* Displays the latest available trading-day FII KPIs including Buy Contracts, Buy Amount, Sell Contracts, Sell Amount, Net Contracts, Net Amount, EOD OI Contracts, and EOD OI Amount.
+* **Latest Long / Short Ratio:** The participant type can be switched between FII, DII, Pro, and Client to understand how each group is positioned.
 
-* Displays the latest Long / Short positioning percentage for the selected participant type.
+* **Latest market snapshots:** Separate Single Candle visuals show the latest available Index Futures, Stock Futures, and Cash Market price action. Related values such as Futures OI, Change in OI, OI Interpretation, PCR, Delivery Quantity, and Delivery Percentage are displayed below.
 
-* Displays latest Index Futures, Stock Futures, and Cash Market price snapshots using Single Candle visuals.
-
-* Displays related Futures Open Interest, Change in Futures Open Interest, OI Interpretation, PCR, Delivery Quantity, and Delivery Percentage values.
+The Home page is intentionally a latest-day overview; historical-date analysis is available on the detailed pages.
 
 ![Home](Images/1.%20Home.png)
 
@@ -130,13 +128,9 @@ The development process involved defining the market requirements, testing each 
 
 ### 2. Index Futures
 
-* Filters for **Index Futures Symbol, Expiry, and Date Range**.
+This page compares **Index Futures price movement and Volume with Futures Open Interest** over a selected date range. Users can choose the Index Futures symbol and expiry, then analyse how price and OI move together.
 
-* Candlestick / Line chart displays OHLC price movement and Volume for the selected index futures contract.
-
-* Futures Open Interest and Change in Open Interest are displayed together with the price chart for direct comparison.
-
-* OI Interpretation classifies the selected futures movement as **Long Buildup, Short Buildup, Long Unwinding, or Short Covering**.
+The lower visual classifies the Price + OI combination into **Long Buildup, Short Buildup, Short Covering, and Long Unwinding**, making it easier to understand how futures positioning changes alongside price.
 
 ![Index Futures](Images/2.%20Index%20Futures.png)
 
@@ -144,13 +138,9 @@ The development process involved defining the market requirements, testing each 
 
 ### 3. FII Derivatives
 
-* Filters for **Index, FII Derivative Instrument, two independently selected OI Metrics, and Date Range**.
+This page analyses **FII derivatives activity alongside index price movement**. Users can select the Index, derivative instrument, date range, and independently choose **two FII metrics** for comparison.
 
-* Displays the selected Index Candlestick / Line price chart.
-
-* Two Bar / Line analytical visuals allow any two FII metrics to be selected independently and compared over the same period.
-
-* Available FII analysis includes Buy, Sell, Net, and End-of-Day Open Interest data across Contracts and Amount-based metrics.
+Available metrics include Buy, Sell, Net, and End-of-Day Open Interest in both **Contracts and Amount** terms, allowing the two selected series to be compared with each other and with the index price trend over the same period.
 
 ![FII Derivatives](Images/3.%20FII%20Derivatives.png)
 
@@ -158,17 +148,13 @@ The development process involved defining the market requirements, testing each 
 
 ### 4. Long / Short Ratio
 
-* Filters for **Client Type, Index, and Date Range**.
+This page shows how **FII, DII, Client, and Pro participants are positioned across selected indices**. Users can change the participant type, index, and date range, then compare changes in positioning with index price movement.
 
-* Displays the selected Index Candlestick / Line price chart.
+The Bar view displays **Future Index Long and Future Index Short positions**, while the Line view displays the participant's **Long-position share of total Long + Short positions**.
 
-* Bar view displays **Future Index Long and Future Index Short positions**.
+The report calculates this as:
 
-* Line view displays the selected participant's **Long-position share of total Long + Short positions** as a percentage.
-
-* The ratio used in the report is **Long Positions ÷ (Long Positions + Short Positions)**.
-
-* Participant categories include **Client, DII, FII, and Proprietary**.
+**Long Positions ÷ (Long Positions + Short Positions)**
 
 ![Long Short Ratio](Images/4.%20LS%20Ratio.png)
 
@@ -176,19 +162,9 @@ The development process involved defining the market requirements, testing each 
 
 ### 5. Options Open Interest
 
-* Filters for **F&O Symbol, Expiry, and Date**.
+This page analyses **Call and Put Open Interest across strike prices** for the selected symbol, expiry, and date.
 
-* Displays **Call Open Interest and Put Open Interest** across strike prices.
-
-* Displays separate **Change in Call Open Interest and Change in Put Open Interest** analysis.
-
-* Cumulative Call and Put Open Interest are displayed alongside the Open Interest chart, while cumulative Change in OI is displayed alongside the Change in Open Interest chart.
-
-* ATM reference is displayed on both Open Interest visuals.
-
-* Strike-range controls allow the displayed range to be adjusted to **±10, ±20, ±30, ±40, or ±50 strikes around ATM**.
-
-* Put-Call Ratio (PCR) is displayed for the selected data.
+It includes **Open Interest, Change in Open Interest, PCR, ATM reference, cumulative OI views, and adjustable strike ranges around ATM**. The strike-range controls can be changed to **±10, ±20, ±30, ±40, or ±50 strikes**, helping users move from a focused ATM view to a broader options-market view.
 
 ![Options Open Interest](Images/5.%20Options%20Open%20Interest.png)
 
@@ -196,15 +172,9 @@ The development process involved defining the market requirements, testing each 
 
 ### 6. Stock Futures
 
-* Filters for **Stock Futures Symbol, Expiry, and Date Range**.
+This page applies **Price + Open Interest analysis to individual F&O stocks**. Users can select the Stock Futures symbol, expiry, and date range, then compare candlestick price movement and Volume with Futures Open Interest.
 
-* Displays the selected Stock Futures Candlestick / Line price chart with Volume.
-
-* Futures Open Interest and Change in Open Interest are displayed with the selected stock futures price for comparison.
-
-* OI Interpretation classifies the selected stock futures movement as **Long Buildup, Short Buildup, Long Unwinding, or Short Covering**.
-
-* This page is dedicated to **individual F&O stock futures**, while index futures are analyzed separately on the Index Futures page.
+The OI visual classifies the selected stock's activity into **Long Buildup, Short Buildup, Short Covering, and Long Unwinding**, helping identify whether positions are being built or closed as price changes.
 
 ![Stock Futures](Images/6.%20Stock%20Futures.png)
 
@@ -212,17 +182,9 @@ The development process involved defining the market requirements, testing each 
 
 ### 7. Stock & Delivery
 
-* Filters for **Stock Symbol and Date Range**, with stock search available.
+This page combines **cash-market stock price movement with Volume and Delivery data**. Users can search and select a stock and date range, then compare price action with delivery participation.
 
-* Displays the selected cash-market Stock Candlestick / Line chart with Volume.
-
-* Delivery data is displayed below the price chart for direct comparison with price movement.
-
-* Bar view displays **Delivery Quantity**.
-
-* Line view displays **Delivery Percentage (%)**.
-
-* Delivery data helps evaluate the level of delivery-based participation alongside price and traded volume; it does not by itself indicate buying or selling direction.
+The Bar view displays **Delivery Quantity**, while the Line view displays **Delivery Percentage (%)**. This adds context to price and traded volume, while avoiding the assumption that higher delivery alone indicates buying or selling direction.
 
 ![Stock and Delivery](Images/7.%20Stocks%20Delivery.png)
 
