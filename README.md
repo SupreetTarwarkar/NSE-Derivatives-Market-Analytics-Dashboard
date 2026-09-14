@@ -112,7 +112,7 @@ The development process involved defining the market requirements, testing each 
 
 ### 1. Home
 
-The Home page is designed as a **latest available trading-day snapshot**, based on the **Last Updated** date shown on the report. It brings together three areas on one screen:
+The Home page is designed as a **latest available trading day snapshot**, based on the **Last Updated** date shown on the report. It brings together three areas on one screen:
 
 * **FII Derivatives KPIs:** The derivative instrument can be changed to analyse Buy, Sell, Net, and End-of-Day Open Interest activity across the latest available data.
 
