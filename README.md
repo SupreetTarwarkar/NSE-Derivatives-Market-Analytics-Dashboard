@@ -8,7 +8,7 @@ The main objective of the project is to bring **candlestick price action and sup
 
 This report is designed for post-market analysis using official daily closing files. It is not an intraday or real-time streaming dashboard.
 
-### [https://app.powerbi.com/view?r=eyJrIjoiYTM3MmUyNWUtYzJmOC00YTZlLWFkNjUtY2Y4YzdhNTc1ZmUxIiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9&pageName=60ec776c1e7314e68d31](PBIX/README.md)
+### [View Interactive Power BI Dashboard](https://app.powerbi.com/view?r=eyJrIjoiYTM3MmUyNWUtYzJmOC00YTZlLWFkNjUtY2Y4YzdhNTc1ZmUxIiwidCI6ImRmODY3OWNkLWE4MGUtNDVkOC05OWFjLWM4M2VkN2ZmOTVhMCJ9&pageName=60ec776c1e7314e68d31)
 
 ---
 
@@ -266,7 +266,7 @@ The development process involved defining the market requirements, testing each 
 
 A full video walkthrough explaining how to read the data, navigate the pages, and use the dashboard is available here:
 
-[Link to Walkthrough Video](https://drive.google.com/file/d/1b5joltMGyvu1zLb04pjtTNFVJI_DRRML/view?usp=sharing)
+[Link to Walkthrough Video](https://drive.google.com/file/d/1b5joltMGyvu1zLb04pjtTNFVJI_DRRML/view)
 
 ---
 
