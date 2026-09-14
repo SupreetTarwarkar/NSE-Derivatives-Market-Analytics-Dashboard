@@ -40,7 +40,7 @@ This report is designed for post-market analysis using official daily closing fi
 
 * **Data Modeling:** Relationships between participant data, Bhavcopy data, index data, and date tables
 
-* **Excel / CSV:** Raw End-of-Day source data from the National Stock Exchange of India
+* **CSV:** Official NSE End-of-Day source files used for the report data
 
 * **Custom Visuals:** Custom `.pbiviz` visuals developed with TypeScript-based Power BI visual development and AI assistance
 
@@ -48,7 +48,7 @@ This report is designed for post-market analysis using official daily closing fi
 
 ## 4. Data Sources
 
-This dashboard uses four official End-of-Day reports published daily by the National Stock Exchange of India (NSE):
+This dashboard uses five official End-of-Day reports/data files published by the National Stock Exchange of India (NSE):
 
 * **Full Bhavcopy and Security Deliverable Data (`sec_bhavdata_full`):** Contains stock price, traded quantity, deliverable quantity, and delivery percentage data.
 
@@ -57,6 +57,8 @@ This dashboard uses four official End-of-Day reports published daily by the Nati
 * **F&O FII Derivatives Statistics (`fii_stats`):** Contains FII Buy Contracts, Sell Contracts, Net Contracts, Buy / Sell Amount, and Open Interest data across derivative instruments.
 
 * **F&O UDiFF Common Bhavcopy Final:** Contains contract-level Futures and Options price, Open Interest, Change in Open Interest, expiry, strike price, and related derivatives data.
+
+* **NSE Daily Index Close (`ind_close_all`):** Used for index OHLC and related daily index data for NIFTY 50, NIFTY BANK, and NIFTY FINANCIAL SERVICES.
 
 To keep the Power BI file size practical and performance smooth, this project uses around **one month of EOD market data from August 2026 onward**.
 
@@ -102,7 +104,7 @@ Five custom Power BI visual packages were developed with AI assistance, includin
 
 * **Futures OI by Supreet Tarwarkar:** Displays Futures Open Interest and Change in Open Interest with Long Buildup, Short Buildup, Long Unwinding, and Short Covering classification.
 
-* **Single Candle by Supreet Tarwarkar:** Displays the latest trading-day OHLC candle used on the Overview page.
+* **Single Candle by Supreet Tarwarkar:** Displays the latest trading-day OHLC candle used on the Home page.
 
 The development process involved defining the market requirements, testing each version inside Power BI, identifying visual and alignment issues, refining the requirements, and integrating the working builds into the dashboard.
 
@@ -146,7 +148,7 @@ The development process involved defining the market requirements, testing each 
 
 ### 3. FII Derivatives
 
-* Select the **Index, Derivative Instrument, Date Range, and two OI Metrics**.
+* Select the **Index, Derivative Instrument, Date Range, and two FII Metrics**.
 
 * The top visual shows the selected **Index price movement**.
 
@@ -262,7 +264,15 @@ The development process involved defining the market requirements, testing each 
 
 ---
 
-## 9. Project Walkthrough Video
+## 9. Challenges & Learnings
+
+The main development problems, debugging process, source migration, custom visual iterations, Gateway issues, bookmark management, and deployment learnings are documented separately.
+
+### [Challenges Faced and Key Learnings](Challenges-and-Learnings/README.md)
+
+---
+
+## 10. Project Walkthrough Video
 
 A full video walkthrough explaining how to read the data, navigate the pages, and use the dashboard is available here:
 
@@ -270,7 +280,7 @@ A full video walkthrough explaining how to read the data, navigate the pages, an
 
 ---
 
-## 10. Author
+## 11. Author
 
 **Supreet Jayant Tarwarkar**
 
