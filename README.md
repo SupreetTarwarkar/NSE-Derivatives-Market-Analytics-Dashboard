@@ -70,19 +70,19 @@ To keep the Power BI file size practical and performance smooth, this project us
 
 ## 5. Daily Refresh Workflow
 
-* The required NSE EOD files are generally available around **7:00 PM IST**, although publication may occasionally be delayed.
+* The required NSE EOD files are generally available around **7:00 PM IST**.
 
-* Once all the required files are available, they are downloaded and placed into their respective source folders.
+* Once the required files are available, they are downloaded and placed into their respective source folders.
 
-* The report is refreshed in Power BI Desktop.
+* The dashboard refresh is scheduled around **8:00 PM IST** after the evening NSE files are available.
 
 * Power Query combines the new data with the existing historical data.
 
 * Latest-date KPI cards and visuals update with the newly added trading-day data.
 
-* The updated report is republished to Power BI Service, and the latest available trading date is verified.
+* The updated report is verified in Power BI Service against the latest available trading date.
 
-> *Note: If the required NSE files are delayed, they are checked again around **7:00 AM IST the next day**. The dashboard is refreshed once the required data becomes available.*
+> *Note: If any required NSE file is delayed in the evening, the data is checked again around **7:00 AM IST the next morning** and the dashboard is refreshed once the missing file becomes available.*
 
 ---
 
@@ -256,9 +256,11 @@ The development process involved defining the market requirements, testing each 
 
 * Collapsible and expandable navigation sidebar using bookmarks.
 
-* Contextual information buttons with metric definitions and **How to Read It** guidance across the dashboard.
+* Contextual information buttons are provided wherever additional explanation is required, with metric definitions and **How to Read It** guidance across the dashboard.
 
 * Short hover tooltips on information icons help users understand what each help button explains before opening it.
+
+* NSE EOD files are generally available around **7:00 PM IST**, with the dashboard refresh scheduled around **8:00 PM IST** and a **7:00 AM IST** fallback check when files are delayed.
 
 * Historical market data is extended as new daily EOD files are added.
 
