@@ -4,6 +4,8 @@
 
 This is an End-of-Day (EOD) market analysis dashboard built in Power BI. It helps analyze daily National Stock Exchange (NSE) cash and derivatives data alongside candlestick price charts on a single screen, rather than checking market numbers and technical charts on separate websites or software.
 
+The main objective of the project is to bring **candlestick price action and supporting market data together in one analytical workflow**, making it easier to compare price movement with Open Interest, FII activity, participant positioning, PCR, and delivery data.
+
 This report is designed for post-market analysis using official daily closing files. It is not an intraday or real-time streaming dashboard.
 
 ### [View Interactive Power BI Dashboard](PBIX/README.md)
@@ -16,7 +18,7 @@ This report is designed for post-market analysis using official daily closing fi
 
 * What does Foreign Institutional Investor (FII) derivatives activity suggest when compared with index price direction?
 
-* How are Clients, DIIs, FIIs, and Proprietary desks positioned in terms of Long vs. Short contracts?
+* How are Clients, DIIs, FIIs, and Proprietary desks positioned in terms of Long vs. Short exposure?
 
 * How is Options Open Interest (OI) and Change in OI distributed across strike prices and expiries?
 
@@ -34,7 +36,7 @@ This report is designed for post-market analysis using official daily closing fi
 
 * **Power Query:** Importing, cleaning, transforming, and appending daily NSE source files
 
-* **DAX:** Calculating KPIs, Long/Short ratios, PCR, Open Interest metrics, and latest-date calculations
+* **DAX:** Calculating KPIs, Long/Short positioning, PCR, Open Interest metrics, and latest-date calculations
 
 * **Data Modeling:** Relationships between participant data, Bhavcopy data, index data, and date tables
 
@@ -110,11 +112,13 @@ The development process involved defining the market requirements, testing each 
 
 ### 1. Home
 
+* Designed as a **latest available trading-day snapshot**, based on the **Last Updated** date shown on the page. Historical dates are analyzed on the detailed pages rather than on Home.
+
 * Filters for **Index Futures, Index Expiry, Stock Futures, Stock Expiry, Cash Market Symbol, FII Derivative Instrument, and Participant Type**.
 
 * Displays the latest available trading-day FII KPIs including Buy Contracts, Buy Amount, Sell Contracts, Sell Amount, Net Contracts, Net Amount, EOD OI Contracts, and EOD OI Amount.
 
-* Displays the latest Long / Short Ratio for the selected participant type.
+* Displays the latest Long / Short positioning percentage for the selected participant type.
 
 * Displays latest Index Futures, Stock Futures, and Cash Market price snapshots using Single Candle visuals.
 
@@ -140,11 +144,11 @@ The development process involved defining the market requirements, testing each 
 
 ### 3. FII Derivatives
 
-* Filters for **Index, FII Derivative Instrument, Metrics, and Date Range**.
+* Filters for **Index, FII Derivative Instrument, two independently selected OI Metrics, and Date Range**.
 
 * Displays the selected Index Candlestick / Line price chart.
 
-* Two Bar / Line analytical visuals allow different FII metrics to be compared with the selected index price movement.
+* Two Bar / Line analytical visuals allow any two FII metrics to be selected independently and compared over the same period.
 
 * Available FII analysis includes Buy, Sell, Net, and End-of-Day Open Interest data across Contracts and Amount-based metrics.
 
@@ -160,7 +164,9 @@ The development process involved defining the market requirements, testing each 
 
 * Bar view displays **Future Index Long and Future Index Short positions**.
 
-* Line view displays the **Long / Short Ratio in percentage (%)** for the selected participant category.
+* Line view displays the selected participant's **Long-position share of total Long + Short positions** as a percentage.
+
+* The ratio used in the report is **Long Positions ÷ (Long Positions + Short Positions)**.
 
 * Participant categories include **Client, DII, FII, and Proprietary**.
 
@@ -176,7 +182,7 @@ The development process involved defining the market requirements, testing each 
 
 * Displays separate **Change in Call Open Interest and Change in Put Open Interest** analysis.
 
-* Cumulative Call and Put Open Interest are displayed alongside the strike-wise charts.
+* Cumulative Call and Put Open Interest are displayed alongside the Open Interest chart, while cumulative Change in OI is displayed alongside the Change in Open Interest chart.
 
 * ATM reference is displayed on both Open Interest visuals.
 
@@ -243,6 +249,8 @@ The development process involved defining the market requirements, testing each 
 * Collapsible and expandable navigation sidebar using bookmarks.
 
 * Contextual information buttons with metric definitions and **How to Read It** guidance across the dashboard.
+
+* Short hover tooltips on information icons help users understand what each help button explains before opening it.
 
 * Historical market data is extended as new daily EOD files are added.
 
