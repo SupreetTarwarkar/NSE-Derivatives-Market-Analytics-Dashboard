@@ -39,11 +39,45 @@ This section documents the important problems, how they were identified, how the
 
 ### Development Flow
 
-**Requirement → ChatGPT-assisted code → Compile PBIVIZ → Import into Power BI → Test → Identify Issue → Modify → Rebuild → Retest**
+<div align="center">
+
+**Requirement**
+
+↓
+
+**ChatGPT-assisted Code**
+
+↓
+
+**Compile PBIVIZ**
+
+↓
+
+**Import into Power BI**
+
+↓
+
+**Test with NSE Data**
+
+↓
+
+**Identify Issue**
+
+↓
+
+**Modify and Rebuild**
+
+↓
+
+**Retest**
+
+</div>
 
 - The Candlestick visual went through approximately **25–26 test builds**.
 
 - Some changes solved one issue but affected another existing feature.
+
+- For example, a fix related to hover behaviour could affect the OHLC header or another existing visual feature.
 
 - This made regression testing necessary after important changes.
 
@@ -60,7 +94,7 @@ This section documents the important problems, how they were identified, how the
 
 - Custom visual development is not only about writing code.
 
-- Clear business requirements, repeated testing and validation are equally important.
+- Clear requirements, repeated testing and validation are equally important.
 
 ---
 
@@ -82,15 +116,21 @@ Examples included:
   - Plot-area margins
   - Axis padding
   - Date positioning
-  - Independent scrolling behaviour
+  - Independent visual behaviour
 
 - For financial analysis, the supporting value for a trading date needed to appear directly below the candle for the same trading date.
 
 ### Required Alignment
 
-**05 Sep Candle**  
-↓  
+<div align="center">
+
+**05 Sep Candle**
+
+↓
+
 **05 Sep Supporting Value**
+
+</div>
 
 - This requirement led to the development of the **Bar & Line custom visual**.
 
@@ -116,6 +156,8 @@ Examples included:
 ### Key Learning
 
 - A visual can work correctly by itself but still require changes after integration into the complete dashboard.
+
+- The final behaviour should always be tested inside the actual report where the visual will be used.
 
 ---
 
@@ -224,28 +266,49 @@ Examples included:
 
 - The same visual could then be reused for different latest-market snapshots on the Home page.
 
-
 ### Visual Development Journey
 
-**Need Financial Price Chart**  
-↓  
+<div align="center">
+
+**Need Financial Price Chart**
+
+↓
+
 **Candlestick Visual**
 
-**Need Supporting Data Below Price**  
-↓  
+<br>
+
+**Need Supporting Data Below Price**
+
+↓
+
 **Bar & Line Visual**
 
-**Need Price + OI Classification**  
-↓  
+<br>
+
+**Need Price + OI Classification**
+
+↓
+
 **Futures OI Visual**
 
-**Need Strike-wise Options Analysis**  
-↓  
+<br>
+
+**Need Strike-wise Options Analysis**
+
+↓
+
 **Options OI Visual**
 
-**Need Latest-Day Home Overview**  
-↓  
+<br>
+
+**Need Latest-Day Home Overview**
+
+↓
+
 **Single Candle Visual**
+
+</div>
 
 ---
 
@@ -293,7 +356,27 @@ Examples included:
 
 ### Debugging Flow
 
-**Power BI Visual → Data Model → Power Query → Excel File → STOCKHISTORY**
+<div align="center">
+
+**Power BI Visual**
+
+↓
+
+**Data Model**
+
+↓
+
+**Power Query**
+
+↓
+
+**Excel File**
+
+↓
+
+**STOCKHISTORY**
+
+</div>
 
 - The missing dates were already absent in Excel.
 
@@ -328,27 +411,49 @@ Examples included:
 
 ### Migration Flow
 
-**Old Excel Structure**  
-↓  
-**Identify Existing Fields Used by the Report**  
-↓  
-**Load NSE Index Files**  
-↓  
-**Clean and Transform in Power Query**  
-↓  
-**Match Required Field Structure**  
-↓  
-**Reconnect Existing Model**  
-↓  
-**Validate DAX**  
-↓  
-**Validate Visuals**  
-↓  
+<div align="center">
+
+**Old Excel Structure**
+
+↓
+
+**Identify Existing Fields Used by the Report**
+
+↓
+
+**Load NSE Index Files**
+
+↓
+
+**Clean and Transform in Power Query**
+
+↓
+
+**Match Required Field Structure**
+
+↓
+
+**Reconnect Existing Model**
+
+↓
+
+**Validate DAX**
+
+↓
+
+**Validate Visuals**
+
+↓
+
 **Check Latest Date**
+
+</div>
 
 ### Key Learning
 
 - When replacing a source in an already-developed report, keeping the downstream field structure stable can prevent unnecessary rebuilding.
+
+- This also reduces the risk of breaking existing DAX, relationships and visuals.
 
 ---
 
@@ -372,7 +477,27 @@ Examples included:
 
 ### Dependency Flow
 
-**Old Excel Source → Query / Table → Model Dependency → Power BI Service → Gateway Warning**
+<div align="center">
+
+**Old Excel Source**
+
+↓
+
+**Query / Table**
+
+↓
+
+**Model Dependency**
+
+↓
+
+**Power BI Service**
+
+↓
+
+**Gateway Warning**
+
+</div>
 
 - DAX itself does not create a Gateway connection.
 
@@ -438,7 +563,35 @@ Examples included:
 
 ### Bookmark Testing Flow
 
-**Select Bookmark → Check Purpose → Check Visibility → Check Data State → Update → Test → Move to Next Bookmark**
+<div align="center">
+
+**Select Bookmark**
+
+↓
+
+**Check Purpose**
+
+↓
+
+**Check Visibility**
+
+↓
+
+**Check Data State**
+
+↓
+
+**Update**
+
+↓
+
+**Test**
+
+↓
+
+**Move to Next Bookmark**
+
+</div>
 
 - This took more time but reduced the chance of breaking unrelated report states.
 
@@ -482,7 +635,27 @@ Example:
 
 ### Deployment Testing Flow
 
-**Desktop Refresh → Publish → Configure Gateway → Service Refresh → Validate Latest Data**
+<div align="center">
+
+**Desktop Refresh**
+
+↓
+
+**Publish**
+
+↓
+
+**Configure Gateway**
+
+↓
+
+**Service Refresh**
+
+↓
+
+**Validate Latest Data**
+
+</div>
 
 ### Key Learning
 
@@ -513,7 +686,19 @@ Example:
 
 ### Final Testing Flow
 
-**Power BI Desktop → Power BI Service → Publish-to-Web**
+<div align="center">
+
+**Power BI Desktop**
+
+↓
+
+**Power BI Service**
+
+↓
+
+**Publish-to-Web**
+
+</div>
 
 ### Key Learning
 
@@ -543,7 +728,55 @@ Example:
 
 ### Regression Testing Flow
 
-**Source Data → Power Query → Model → DAX → Visuals → Filters → Bookmarks → Themes → Sidebar → Info Buttons → Service → Public Link**
+<div align="center">
+
+**Source Data**
+
+↓
+
+**Power Query**
+
+↓
+
+**Model**
+
+↓
+
+**DAX**
+
+↓
+
+**Visuals**
+
+↓
+
+**Filters**
+
+↓
+
+**Bookmarks**
+
+↓
+
+**Themes**
+
+↓
+
+**Sidebar**
+
+↓
+
+**Information Buttons**
+
+↓
+
+**Power BI Service**
+
+↓
+
+**Public Link**
+
+</div>
 
 ### Key Learning
 
@@ -601,53 +834,103 @@ Example:
 
 # Overall Project Journey
 
-**Understand Market Requirement**  
-↓  
-**Build Initial Power BI Model**  
-↓  
-**Candlestick Limitation Identified**  
-↓  
-**Candlestick Visual Developed — 25–26 Builds**  
-↓  
-**Need Supporting Data Below Candles**  
-↓  
-**Bar & Line Developed — 18–20 Builds**  
-↓  
-**Need Futures Price + OI Classification**  
-↓  
-**Futures OI Developed — 10–13 Builds**  
-↓  
-**Need Options Strike-Level Analysis**  
-↓  
-**Options OI Developed — 10–12 Builds**  
-↓  
-**Need Latest-Day Home Overview**  
-↓  
-**Single Candle Developed — 4–5 Builds**  
-↓  
-**Custom Visual Family Standardised**  
-↓  
-**STOCKHISTORY Stops Updating**  
-↓  
-**Issue Traced Back to Source**  
-↓  
-**Index Data Migrated to Official NSE Files**  
-↓  
-**Existing Report Structure Preserved**  
-↓  
-**Old Excel Dependency Causes Gateway Warning**  
-↓  
-**Dependencies Cleaned**  
-↓  
-**Bookmarks Checked One by One**  
-↓  
-**Desktop Testing**  
-↓  
-**Power BI Service Testing**  
-↓  
-**Publish-to-Web Testing**  
-↓  
+<div align="center">
+
+**Understand Market Requirement**
+
+↓
+
+**Build Initial Power BI Model**
+
+↓
+
+**Candlestick Limitation Identified**
+
+↓
+
+**Candlestick Visual Developed — 25–26 Builds**
+
+↓
+
+**Need Supporting Data Below Candles**
+
+↓
+
+**Bar & Line Developed — 18–20 Builds**
+
+↓
+
+**Need Futures Price + OI Classification**
+
+↓
+
+**Futures OI Developed — 10–13 Builds**
+
+↓
+
+**Need Options Strike-Level Analysis**
+
+↓
+
+**Options OI Developed — 10–12 Builds**
+
+↓
+
+**Need Latest-Day Home Overview**
+
+↓
+
+**Single Candle Developed — 4–5 Builds**
+
+↓
+
+**Custom Visual Family Standardised**
+
+↓
+
+**STOCKHISTORY Stops Updating**
+
+↓
+
+**Issue Traced Back to Source**
+
+↓
+
+**Index Data Migrated to Official NSE Files**
+
+↓
+
+**Existing Report Structure Preserved**
+
+↓
+
+**Old Excel Dependency Causes Gateway Warning**
+
+↓
+
+**Dependencies Cleaned**
+
+↓
+
+**Bookmarks Checked One by One**
+
+↓
+
+**Desktop Testing**
+
+↓
+
+**Power BI Service Testing**
+
+↓
+
+**Publish-to-Web Testing**
+
+↓
+
 **Final Regression Testing**
+
+</div>
 
 ---
 
