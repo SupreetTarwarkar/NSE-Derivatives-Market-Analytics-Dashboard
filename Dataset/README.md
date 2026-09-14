@@ -49,15 +49,14 @@ The following five NSE reports/data files are used in the project:
 
 ## 3. Daily Refresh Workflow
 
-* The required NSE EOD files are generally available around **7:00 PM IST**, although publication may occasionally be delayed.
-* Once all the required files are available, they are downloaded from NSE.
-* The new files are added to the relevant source folders.
-* The Power BI Desktop report is refreshed.
+* The required NSE EOD files are generally available around **7:00 PM IST**.
+* Once the required files are available, they are downloaded from NSE and added to the relevant source folders.
+* The dashboard refresh is scheduled around **8:00 PM IST** after the evening NSE files are available.
 * Power Query combines the new data with the existing historical data.
 * Latest-date KPIs and visuals update automatically.
-* The updated report is republished to **Power BI Service**, and the latest available trading date is verified.
+* The refreshed report is verified in **Power BI Service** against the latest available trading date.
 * Historical data continues to grow as new trading-day files are added, subject to the data-retention approach described above.
 
-> **Note:** If the required NSE files are delayed, they are checked again around **7:00 AM IST the next day**. The dashboard is refreshed once the required data becomes available.
+> **Note:** If any required NSE file is delayed in the evening, the data is checked again around **7:00 AM IST the next morning** and the dashboard is refreshed once the missing file becomes available.
 
 > This is an **End-of-Day market analysis dashboard**, not a live or intraday dashboard.
