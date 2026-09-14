@@ -8,7 +8,7 @@ This project was developed in **Power BI Desktop** and published to **Power BI S
 
 ## PBIX File
 
-The Power BI project file is approximately **29 MB**, which is above GitHub's browser upload limit.
+The final Power BI project file is approximately **35 MB**. The PBIX binary is not stored in this repository; the published interactive report is available through the link above.
 
 ## Project Walkthrough Video
 
