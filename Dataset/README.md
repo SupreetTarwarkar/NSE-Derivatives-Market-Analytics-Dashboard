@@ -8,7 +8,7 @@ The dashboard is built for daily post-market analysis. After each trading day, t
 
 ## 1. NSE Files Used
 
-The following four NSE reports are used in the project:
+The following five NSE reports/data files are used in the project:
 
 * **Full Bhavcopy and Security Deliverable Data**
 
@@ -29,6 +29,12 @@ The following four NSE reports are used in the project:
 
   * Used for Futures and Options price, Open Interest, Change in Open Interest, expiry, strike price, and contract-level analysis.
   * **Official NSE Derivatives Reports:** [NSE Derivatives Reports](https://www.nseindia.com/all-reports-derivatives)
+
+* **NSE Daily Index Close (`ind_close_all`)**
+
+  * Used for daily Index OHLC and related Index data for NIFTY 50, NIFTY BANK, and NIFTY FINANCIAL SERVICES.
+  * This replaced the earlier Excel STOCKHISTORY-based Index source after it stopped returning the latest trading-day data.
+  * **Official NSE Reports:** [NSE Reports](https://www.nseindia.com/all-reports)
 
 ---
 
