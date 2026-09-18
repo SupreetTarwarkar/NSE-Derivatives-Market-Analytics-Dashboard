@@ -128,6 +128,8 @@ The development process involved defining the market requirements, testing each 
 
 ## 7. Dashboard Pages
 
+> *Screenshot update: The dashboard images below reflect market data updated through **17 September 2026**.*
+
 ### 1. Home
 
 * Shows the **latest available trading-day snapshot** based on the **Last Updated** date shown on the page.
