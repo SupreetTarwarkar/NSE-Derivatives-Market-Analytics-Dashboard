@@ -1,11 +1,12 @@
-<div align="center"><h1>Dataset</h1></div>
+# Dataset
 
 This project uses **NSE End-of-Day (EOD) market data** downloaded from the official NSE report pages.
 
 The dashboard is built for daily post-market analysis. A custom NSE downloader and scheduled tasks are used to collect the latest market-day files into the existing source folders before the Power BI Service refresh runs through the Gateway.
 
-<div align="center"><img src="https://raw.githubusercontent.com/SupreetTarwarkar/SupreetTarwarkar/main/Profile-Assets/section-line.svg" width="82%" alt="section divider"/></div>
-<div align="center"><b>1. NSE FILES USED</b></div>
+---
+
+## 1. NSE Files Used
 
 The following five NSE reports/data files are used in the project:
 
@@ -35,16 +36,18 @@ The following five NSE reports/data files are used in the project:
   * This replaced the earlier Excel STOCKHISTORY-based Index source after it stopped returning the latest trading-day data.
   * **Official NSE Reports:** [NSE Reports](https://www.nseindia.com/all-reports)
 
-<div align="center"><img src="https://raw.githubusercontent.com/SupreetTarwarkar/SupreetTarwarkar/main/Profile-Assets/section-line.svg" width="82%" alt="section divider"/></div>
-<div align="center"><b>2. DATA PERIOD</b></div>
+---
+
+## 2. Data Period
 
 * Around **one month of EOD market data from August 2026 onward** is used in this project.
 * The shorter data period is only to keep the Power BI file size practical. The same setup can continue to take new NSE trading-day files as they become available.
 
 > **Note:** New daily EOD files are added to extend the available market history. If the dataset becomes too large or report performance is affected, older source files may be archived or removed to keep the Power BI file manageable. This may reduce the historical period available in the dashboard.
 
-<div align="center"><img src="https://raw.githubusercontent.com/SupreetTarwarkar/SupreetTarwarkar/main/Profile-Assets/section-line.svg" width="82%" alt="section divider"/></div>
-<div align="center"><b>3. AUTOMATED DOWNLOAD & REFRESH WORKFLOW</b></div>
+---
+
+## 3. Automated Download & Refresh Workflow
 
 * The required NSE EOD files are generally available around **7:00 PM IST** on market days.
 * The **NSE Market Data Downloader** checks the five required datasets and saves available files into their fixed source folders.
