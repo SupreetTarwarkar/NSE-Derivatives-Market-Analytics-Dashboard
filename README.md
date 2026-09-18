@@ -90,6 +90,16 @@ To keep the Power BI file size practical and performance smooth, this project us
 
 > *Note: The retry workflow is dependency-based. Files that already exist and pass validation are kept; only missing or unavailable files are checked again.*
 
+### Automation Screenshots
+
+The custom downloader provides a single place to check the five NSE datasets, file names, destination folders, and download status. It also supports single-day and historical-range downloads while skipping configured non-trading days.
+
+![NSE Market Data Downloader](Images/8.%20NSE%20FIle%20Downloader.png)
+
+The Power BI Service refresh schedule is configured to run after the downloader checkpoints through the On-premises Data Gateway, with evening retries and morning fallback refreshes.
+
+![Power BI Gateway Refresh Schedule](Images/9.%20Gateway%20Refresh.png)
+
 ---
 
 ## 6. Why Custom Visuals Were Needed
