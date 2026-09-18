@@ -706,6 +706,90 @@ Example:
 
 ---
 
+## 13. Daily NSE File Download and Refresh Workflow Was Automated
+
+- The dashboard depends on five NSE End-of-Day files that do not always become available at exactly the same time.
+
+- Manually checking and downloading every file each evening was repetitive and could delay the Power BI refresh.
+
+- A custom **NSE Market Data Downloader** was therefore created to:
+
+  - Check the five required NSE files
+  - Save each file into its fixed source folder
+  - Avoid downloading files that already exist
+  - Skip weekends and configured NSE holidays
+  - Retry only the files that are still missing
+
+- **Windows Task Scheduler** was used to automate the checks.
+
+### Evening Schedule
+
+- First check: **7:05 PM IST**
+- Retry checks: **7:15 PM, 7:45 PM, 8:15 PM, 9:45 PM, and 11:15 PM**
+
+- Power BI Service refreshes were then aligned after the download checks through the Gateway:
+
+  - **7:30 PM**
+  - **8:00 PM**
+  - **10:00 PM**
+  - **11:30 PM**
+
+### Morning Fallback
+
+- Additional downloader checks run at:
+
+  - **5:45 AM**
+  - **7:15 AM**
+
+- Power BI refreshes follow at:
+
+  - **6:00 AM**
+  - **7:30 AM**
+
+- An additional **3:00 AM** service refresh is also configured as an overnight checkpoint.
+
+### Automation Flow
+
+<div align="center">
+
+**NSE EOD Files**
+
+↓
+
+**NSE Market Data Downloader**
+
+↓
+
+**Windows Task Scheduler**
+
+↓
+
+**Local Source Folders**
+
+↓
+
+**Power BI Gateway**
+
+↓
+
+**Power BI Service Refresh**
+
+↓
+
+**Latest Trading-Day Dashboard**
+
+</div>
+
+### Key Learning
+
+- Automation should follow the dependency between data availability and report refresh.
+
+- A refresh should not assume that every source file is available at the same time.
+
+- Retrying only missing files keeps the workflow efficient and avoids unnecessary downloads.
+
+---
+
 ## Final Learning
 
 The main learning from this project was that building a complete Power BI solution involves much more than creating charts.
