@@ -2,7 +2,7 @@
 
 This project uses **NSE End-of-Day (EOD) market data** downloaded from the official NSE report pages.
 
-The dashboard is built for daily post-market analysis. After each trading day, the latest NSE files can be added to the existing source folders and the Power BI report can be refreshed with the new data.
+The dashboard is built for daily post-market analysis. A custom NSE downloader and scheduled tasks are used to collect the latest market-day files into the existing source folders before the Power BI Service refresh runs through the Gateway.
 
 ---
 
@@ -47,16 +47,18 @@ The following five NSE reports/data files are used in the project:
 
 ---
 
-## 3. Daily Refresh Workflow
+## 3. Automated Download & Refresh Workflow
 
-* The required NSE EOD files are generally available around **7:00 PM IST**.
-* Once the required files are available, they are downloaded from NSE and added to the relevant source folders.
-* The dashboard refresh is scheduled around **8:00 PM IST** after the evening NSE files are available.
-* Power Query combines the new data with the existing historical data.
-* Latest-date KPIs and visuals update automatically.
-* The refreshed report is verified in **Power BI Service** against the latest available trading date.
+* The required NSE EOD files are generally available around **7:00 PM IST** on market days.
+* The **NSE Market Data Downloader** checks the five required datasets and saves available files into their fixed source folders.
+* Existing valid files are kept and are not downloaded again. Weekends and configured NSE holidays are skipped.
+* Evening checks start at **7:05 PM IST**. Retry checks run at **7:15 PM, 7:45 PM, 8:15 PM, 9:45 PM, and 11:15 PM** only when required files are still missing.
+* Power BI Service refreshes are scheduled at **7:30 PM, 8:00 PM, 10:00 PM, and 11:30 PM IST** so refreshes run after the corresponding evening download checks.
+* Morning fallback checks run at **5:45 AM and 7:15 AM IST**, followed by Power BI refreshes at **6:00 AM and 7:30 AM IST**. A **3:00 AM** refresh is also configured as an overnight checkpoint.
+* Power Query combines the new files with the existing historical data.
+* Latest-date KPIs and visuals update automatically, and the refreshed report is verified in **Power BI Service**.
 * Historical data continues to grow as new trading-day files are added, subject to the data-retention approach described above.
 
-> **Note:** If any required NSE file is delayed in the evening, the data is checked again around **7:00 AM IST the next morning** and the dashboard is refreshed once the missing file becomes available.
+> **Note:** The retry process is dependency-based. Only missing or unavailable files are checked again; files already downloaded successfully are left unchanged.
 
 > This is an **End-of-Day market analysis dashboard**, not a live or intraday dashboard.
