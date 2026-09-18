@@ -1,4 +1,4 @@
-# Challenges Faced and Key Learnings
+<div align="center"><h1>Challenges Faced and Key Learnings</h1></div>
 
 Building the NSE Market Analysis Dashboard involved more than creating visuals and DAX measures.
 
@@ -6,9 +6,8 @@ Several real issues came up during development related to custom financial visua
 
 This section documents the important problems, how they were identified, how they were solved and the main learning from each one.
 
----
-
-## 1. Power BI Did Not Have the Required Financial Candlestick Visual
+<div align="center"><img src="https://raw.githubusercontent.com/SupreetTarwarkar/SupreetTarwarkar/main/Profile-Assets/section-line.svg" width="82%" alt="section divider"/></div>
+<div align="center"><b>1. POWER BI DID NOT HAVE THE REQUIRED FINANCIAL CANDLESTICK VISUAL</b></div>
 
 - The first requirement was a proper financial Candlestick chart for analysing Open, High, Low, Close and Volume.
 
@@ -96,9 +95,8 @@ This section documents the important problems, how they were identified, how the
 
 - Clear requirements, repeated testing and validation are equally important.
 
----
-
-## 2. Supporting Data Could Not Be Properly Aligned Below the Candlestick
+<div align="center"><img src="https://raw.githubusercontent.com/SupreetTarwarkar/SupreetTarwarkar/main/Profile-Assets/section-line.svg" width="82%" alt="section divider"/></div>
+<div align="center"><b>2. SUPPORTING DATA COULD NOT BE PROPERLY ALIGNED BELOW THE CANDLESTICK</b></div>
 
 - Once the Candlestick visual was working, the next requirement was to display supporting market information directly below the price chart.
 
@@ -159,9 +157,8 @@ Examples included:
 
 - The final behaviour should always be tested inside the actual report where the visual will be used.
 
----
-
-## 3. Futures Open Interest Required Separate Market Logic
+<div align="center"><img src="https://raw.githubusercontent.com/SupreetTarwarkar/SupreetTarwarkar/main/Profile-Assets/section-line.svg" width="82%" alt="section divider"/></div>
+<div align="center"><b>3. FUTURES OPEN INTEREST REQUIRED SEPARATE MARKET LOGIC</b></div>
 
 - Futures Open Interest could not be handled only as a normal Bar chart.
 
@@ -200,9 +197,8 @@ Examples included:
 
 - If testing shows that a feature does not improve the analysis, removing it can make the final visual better.
 
----
-
-## 4. Options Open Interest Needed a Different Type of Visual
+<div align="center"><img src="https://raw.githubusercontent.com/SupreetTarwarkar/SupreetTarwarkar/main/Profile-Assets/section-line.svg" width="82%" alt="section divider"/></div>
+<div align="center"><b>4. OPTIONS OPEN INTEREST NEEDED A DIFFERENT TYPE OF VISUAL</b></div>
 
 - Options analysis introduced a different requirement because the analysis is based around strike prices.
 
@@ -237,9 +233,8 @@ Examples included:
 
 - One generic visual cannot always represent Candlestick, Futures OI and Options OI analysis correctly.
 
----
-
-## 5. The Home Page Needed a Latest-Day Overview
+<div align="center"><img src="https://raw.githubusercontent.com/SupreetTarwarkar/SupreetTarwarkar/main/Profile-Assets/section-line.svg" width="82%" alt="section divider"/></div>
+<div align="center"><b>5. THE HOME PAGE NEEDED A LATEST-DAY OVERVIEW</b></div>
 
 - Once the detailed analysis pages were ready, the Home page required a different type of visual.
 
@@ -310,9 +305,8 @@ Examples included:
 
 </div>
 
----
-
-## 6. The Custom Visual Family Had to Be Standardised
+<div align="center"><img src="https://raw.githubusercontent.com/SupreetTarwarkar/SupreetTarwarkar/main/Profile-Assets/section-line.svg" width="82%" alt="section divider"/></div>
+<div align="center"><b>6. THE CUSTOM VISUAL FAMILY HAD TO BE STANDARDISED</b></div>
 
 - After the custom visuals were developed, another issue became visible.
 
@@ -340,9 +334,8 @@ Examples included:
 
 - Users should not have to learn a completely different formatting structure for every visual.
 
----
-
-## 7. Excel STOCKHISTORY Stopped Providing New Index Data
+<div align="center"><img src="https://raw.githubusercontent.com/SupreetTarwarkar/SupreetTarwarkar/main/Profile-Assets/section-line.svg" width="82%" alt="section divider"/></div>
+<div align="center"><b>7. EXCEL STOCKHISTORY STOPPED PROVIDING NEW INDEX DATA</b></div>
 
 - Initially, Index price data was obtained through Excel using **STOCKHISTORY**.
 
@@ -388,9 +381,8 @@ Examples included:
 
 - Power BI cannot display data that is already missing from the upstream source.
 
----
-
-## 8. Index Data Had to Be Migrated to Official NSE Files
+<div align="center"><img src="https://raw.githubusercontent.com/SupreetTarwarkar/SupreetTarwarkar/main/Profile-Assets/section-line.svg" width="82%" alt="section divider"/></div>
+<div align="center"><b>8. INDEX DATA HAD TO BE MIGRATED TO OFFICIAL NSE FILES</b></div>
 
 - Since STOCKHISTORY was no longer providing the required latest Index data, another reliable source was required.
 
@@ -455,9 +447,8 @@ Examples included:
 
 - This also reduces the risk of breaking existing DAX, relationships and visuals.
 
----
-
-## 9. Old Excel Dependencies Continued to Create Gateway Warnings
+<div align="center"><img src="https://raw.githubusercontent.com/SupreetTarwarkar/SupreetTarwarkar/main/Profile-Assets/section-line.svg" width="82%" alt="section divider"/></div>
+<div align="center"><b>9. OLD EXCEL DEPENDENCIES CONTINUED TO CREATE GATEWAY WARNINGS</b></div>
 
 - After moving the main Index data to NSE files, the dashboard itself was working correctly.
 
@@ -520,9 +511,8 @@ Examples included:
 
 - The old source should also be removed from every place where it is no longer required.
 
----
-
-## 10. Large Number of Bookmarks Became Difficult to Manage
+<div align="center"><img src="https://raw.githubusercontent.com/SupreetTarwarkar/SupreetTarwarkar/main/Profile-Assets/section-line.svg" width="82%" alt="section divider"/></div>
+<div align="center"><b>10. LARGE NUMBER OF BOOKMARKS BECAME DIFFICULT TO MANAGE</b></div>
 
 - The dashboard eventually used many bookmarks.
 
@@ -612,9 +602,8 @@ Examples:
 
 - Once bookmarks become part of the complete dashboard UI, they need proper naming, grouping and individual testing.
 
----
-
-## 11. Power BI Desktop Refresh Did Not Guarantee Power BI Service Refresh
+<div align="center"><img src="https://raw.githubusercontent.com/SupreetTarwarkar/SupreetTarwarkar/main/Profile-Assets/section-line.svg" width="82%" alt="section divider"/></div>
+<div align="center"><b>11. POWER BI DESKTOP REFRESH DID NOT GUARANTEE POWER BI SERVICE REFRESH</b></div>
 
 - A report could work correctly and refresh successfully in Power BI Desktop but still have issues after publishing.
 
@@ -663,9 +652,8 @@ Example:
 
 - Power BI Service refresh should always be tested separately.
 
----
-
-## 12. Desktop, Service and Publish-to-Web Did Not Always Behave the Same
+<div align="center"><img src="https://raw.githubusercontent.com/SupreetTarwarkar/SupreetTarwarkar/main/Profile-Assets/section-line.svg" width="82%" alt="section divider"/></div>
+<div align="center"><b>12. DESKTOP, SERVICE AND PUBLISH-TO-WEB DID NOT ALWAYS BEHAVE THE SAME</b></div>
 
 - One of the information buttons worked correctly in Power BI Desktop.
 
@@ -704,9 +692,8 @@ Example:
 
 - The final report should always be tested in the same environment where the end user will consume it.
 
----
-
-## 13. Daily NSE File Download and Refresh Workflow Was Automated
+<div align="center"><img src="https://raw.githubusercontent.com/SupreetTarwarkar/SupreetTarwarkar/main/Profile-Assets/section-line.svg" width="82%" alt="section divider"/></div>
+<div align="center"><b>13. DAILY NSE FILE DOWNLOAD AND REFRESH WORKFLOW WAS AUTOMATED</b></div>
 
 - The dashboard depends on five NSE End-of-Day files that do not always become available at exactly the same time.
 
@@ -788,9 +775,8 @@ Example:
 
 - Retrying only missing files keeps the workflow efficient and avoids unnecessary downloads.
 
----
-
-## Final Learning
+<div align="center"><img src="https://raw.githubusercontent.com/SupreetTarwarkar/SupreetTarwarkar/main/Profile-Assets/section-line.svg" width="82%" alt="section divider"/></div>
+<div align="center"><b>FINAL LEARNING</b></div>
 
 The main learning from this project was that building a complete Power BI solution involves much more than creating charts.
 
