@@ -12,29 +12,29 @@ The following five NSE reports/data files are used in the project:
 
 * **Full Bhavcopy and Security Deliverable Data**
 
-  * Used for stock price, traded quantity, delivery quantity, and delivery percentage analysis.
-  * **Official NSE Reports:** [NSE Reports](https://www.nseindia.com/all-reports)
+* Used for stock price, traded quantity, delivery quantity, and delivery percentage analysis.
+* **Official NSE Reports:** [NSE Reports](https://www.nseindia.com/all-reports)
 
 * **F&O Participant-wise Open Interest**
 
-  * Used to analyze participant positioning and Long / Short activity across FII, DII, Proprietary, and Client categories.
-  * **Official NSE Derivatives Reports:** [NSE Derivatives Reports](https://www.nseindia.com/all-reports-derivatives)
+* Used to analyze participant positioning and Long / Short activity across FII, DII, Proprietary, and Client categories.
+* **Official NSE Derivatives Reports:** [NSE Derivatives Reports](https://www.nseindia.com/all-reports-derivatives)
 
 * **F&O FII Derivatives Statistics**
 
-  * Used for FII derivatives analysis such as Buy Contracts, Sell Contracts, Net Contracts, Buy / Sell Amount, and Open Interest.
-  * **Official NSE Derivatives Reports:** [NSE Derivatives Reports](https://www.nseindia.com/all-reports-derivatives)
+* Used for FII derivatives analysis such as Buy Contracts, Sell Contracts, Net Contracts, Buy / Sell Amount, and Open Interest.
+* **Official NSE Derivatives Reports:** [NSE Derivatives Reports](https://www.nseindia.com/all-reports-derivatives)
 
 * **F&O UDiFF Common Bhavcopy Final**
 
-  * Used for Futures and Options price, Open Interest, Change in Open Interest, expiry, strike price, and contract-level analysis.
-  * **Official NSE Derivatives Reports:** [NSE Derivatives Reports](https://www.nseindia.com/all-reports-derivatives)
+* Used for Futures and Options price, Open Interest, Change in Open Interest, expiry, strike price, and contract-level analysis.
+* **Official NSE Derivatives Reports:** [NSE Derivatives Reports](https://www.nseindia.com/all-reports-derivatives)
 
 * **NSE Daily Index Close (`ind_close_all`)**
 
-  * Used for daily Index OHLC and related Index data for NIFTY 50, NIFTY BANK, and NIFTY FINANCIAL SERVICES.
-  * This replaced the earlier Excel STOCKHISTORY-based Index source after it stopped returning the latest trading-day data.
-  * **Official NSE Reports:** [NSE Reports](https://www.nseindia.com/all-reports)
+* Used for daily Index OHLC and related Index data for NIFTY 50, NIFTY BANK, and NIFTY FINANCIAL SERVICES.
+* This replaced the earlier Excel STOCKHISTORY-based Index source after it stopped returning the latest trading-day data.
+* **Official NSE Reports:** [NSE Reports](https://www.nseindia.com/all-reports)
 
 ---
 
