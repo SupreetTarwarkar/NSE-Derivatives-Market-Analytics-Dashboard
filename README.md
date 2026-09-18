@@ -2,6 +2,7 @@
 
 <div align="center"><img src="https://raw.githubusercontent.com/SupreetTarwarkar/SupreetTarwarkar/main/Profile-Assets/section-line.svg" width="82%" alt="section divider"/></div>
 <div align="center"><b>1. OVERVIEW</b></div>
+<div align="center"><img src="https://raw.githubusercontent.com/SupreetTarwarkar/SupreetTarwarkar/main/Profile-Assets/skill-line-white.svg" width="62%" alt=""/></div>
 
 This is an End-of-Day (EOD) market analysis dashboard built in Power BI. It helps analyze daily National Stock Exchange (NSE) cash and derivatives data alongside candlestick price charts on a single screen, rather than checking market numbers and technical charts on separate websites or software.
 
@@ -10,9 +11,11 @@ The main objective of the project is to bring **candlestick price action and sup
 This report is designed for post-market analysis using official daily closing files. It is not an intraday or real-time streaming dashboard.
 
 <div align="center"><b>[View Interactive Power BI Dashboard](PBIX/README.md)</b></div>
+<div align="center"><img src="https://raw.githubusercontent.com/SupreetTarwarkar/SupreetTarwarkar/main/Profile-Assets/skill-line-white.svg" width="62%" alt=""/></div>
 
 <div align="center"><img src="https://raw.githubusercontent.com/SupreetTarwarkar/SupreetTarwarkar/main/Profile-Assets/section-line.svg" width="82%" alt="section divider"/></div>
 <div align="center"><b>2. BUSINESS QUESTIONS ADDRESSED</b></div>
+<div align="center"><img src="https://raw.githubusercontent.com/SupreetTarwarkar/SupreetTarwarkar/main/Profile-Assets/skill-line-white.svg" width="62%" alt=""/></div>
 
 * How can daily NSE cash and derivatives figures be read alongside actual price candles without switching platforms?
 
@@ -30,6 +33,7 @@ This report is designed for post-market analysis using official daily closing fi
 
 <div align="center"><img src="https://raw.githubusercontent.com/SupreetTarwarkar/SupreetTarwarkar/main/Profile-Assets/section-line.svg" width="82%" alt="section divider"/></div>
 <div align="center"><b>3. TECH STACK</b></div>
+<div align="center"><img src="https://raw.githubusercontent.com/SupreetTarwarkar/SupreetTarwarkar/main/Profile-Assets/skill-line-white.svg" width="62%" alt=""/></div>
 
 * **Power BI Desktop:** Dashboard design, layout, visual interactions, bookmarks, and report development
 
@@ -49,6 +53,7 @@ This report is designed for post-market analysis using official daily closing fi
 
 <div align="center"><img src="https://raw.githubusercontent.com/SupreetTarwarkar/SupreetTarwarkar/main/Profile-Assets/section-line.svg" width="82%" alt="section divider"/></div>
 <div align="center"><b>4. DATA SOURCES</b></div>
+<div align="center"><img src="https://raw.githubusercontent.com/SupreetTarwarkar/SupreetTarwarkar/main/Profile-Assets/skill-line-white.svg" width="62%" alt=""/></div>
 
 This dashboard uses five official End-of-Day reports/data files published by the National Stock Exchange of India (NSE):
 
@@ -65,11 +70,13 @@ This dashboard uses five official End-of-Day reports/data files published by the
 To keep the Power BI file size practical and performance smooth, this project uses around **one month of EOD market data from August 2026 onward**.
 
 <div align="center"><b>[Dataset](Dataset/README.md)</b></div>
+<div align="center"><img src="https://raw.githubusercontent.com/SupreetTarwarkar/SupreetTarwarkar/main/Profile-Assets/skill-line-white.svg" width="62%" alt=""/></div>
 
 > *Note: New daily EOD files are added to extend the available market history. If the dataset becomes too large or report performance is affected, older source files may be archived or removed to keep the Power BI file manageable. This may reduce the historical period available in the dashboard.*
 
 <div align="center"><img src="https://raw.githubusercontent.com/SupreetTarwarkar/SupreetTarwarkar/main/Profile-Assets/section-line.svg" width="82%" alt="section divider"/></div>
 <div align="center"><b>5. AUTOMATED DOWNLOAD & REFRESH WORKFLOW</b></div>
+<div align="center"><img src="https://raw.githubusercontent.com/SupreetTarwarkar/SupreetTarwarkar/main/Profile-Assets/skill-line-white.svg" width="62%" alt=""/></div>
 
 * The required NSE EOD files are generally available around **7:00 PM IST** on market days.
 
@@ -88,6 +95,7 @@ To keep the Power BI file size practical and performance smooth, this project us
 > *Note: The retry workflow is dependency-based. Files that already exist and pass validation are kept; only missing or unavailable files are checked again.*
 
 <div align="center"><b>Automation Screenshots</b></div>
+<div align="center"><img src="https://raw.githubusercontent.com/SupreetTarwarkar/SupreetTarwarkar/main/Profile-Assets/skill-line-white.svg" width="62%" alt=""/></div>
 
 The custom downloader provides a single place to check the five NSE datasets, file names, destination folders, and download status. It also supports single-day and historical-range downloads while skipping configured non-trading days.
 
@@ -99,6 +107,7 @@ The Power BI Service refresh schedule is configured to run after the downloader 
 
 <div align="center"><img src="https://raw.githubusercontent.com/SupreetTarwarkar/SupreetTarwarkar/main/Profile-Assets/section-line.svg" width="82%" alt="section divider"/></div>
 <div align="center"><b>6. WHY CUSTOM VISUALS WERE NEEDED</b></div>
+<div align="center"><img src="https://raw.githubusercontent.com/SupreetTarwarkar/SupreetTarwarkar/main/Profile-Assets/skill-line-white.svg" width="62%" alt=""/></div>
 
 Power BI does not include a native candlestick visual suitable for the requirements of this dashboard, especially where price movement needs to be compared directly with Volume, Open Interest, delivery data, and other market indicators.
 
@@ -122,10 +131,12 @@ The development process involved defining the market requirements, testing each 
 
 <div align="center"><img src="https://raw.githubusercontent.com/SupreetTarwarkar/SupreetTarwarkar/main/Profile-Assets/section-line.svg" width="82%" alt="section divider"/></div>
 <div align="center"><b>7. DASHBOARD PAGES</b></div>
+<div align="center"><img src="https://raw.githubusercontent.com/SupreetTarwarkar/SupreetTarwarkar/main/Profile-Assets/skill-line-white.svg" width="62%" alt=""/></div>
 
 > *Screenshot update: The dashboard images below reflect market data updated through **17 September 2026**.*
 
 <div align="center"><b>1. Home</b></div>
+<div align="center"><img src="https://raw.githubusercontent.com/SupreetTarwarkar/SupreetTarwarkar/main/Profile-Assets/skill-line-white.svg" width="62%" alt=""/></div>
 
 * Shows the **latest available trading-day snapshot** based on the **Last Updated** date shown on the page.
 
@@ -142,6 +153,7 @@ The development process involved defining the market requirements, testing each 
 ![Home](Images/1.%20Home.png)
 
 <div align="center"><b>2. Index Futures</b></div>
+<div align="center"><img src="https://raw.githubusercontent.com/SupreetTarwarkar/SupreetTarwarkar/main/Profile-Assets/skill-line-white.svg" width="62%" alt=""/></div>
 
 * Select the **Index Futures symbol, Expiry, and Date Range**.
 
@@ -156,6 +168,7 @@ The development process involved defining the market requirements, testing each 
 ![Index Futures](Images/2.%20Index%20Futures.png)
 
 <div align="center"><b>3. FII Derivatives</b></div>
+<div align="center"><img src="https://raw.githubusercontent.com/SupreetTarwarkar/SupreetTarwarkar/main/Profile-Assets/skill-line-white.svg" width="62%" alt=""/></div>
 
 * Select the **Index, Derivative Instrument, Date Range, and two FII Metrics**.
 
@@ -170,6 +183,7 @@ The development process involved defining the market requirements, testing each 
 ![FII Derivatives](Images/3.%20FII%20Derivatives.png)
 
 <div align="center"><b>4. Long / Short Ratio</b></div>
+<div align="center"><img src="https://raw.githubusercontent.com/SupreetTarwarkar/SupreetTarwarkar/main/Profile-Assets/skill-line-white.svg" width="62%" alt=""/></div>
 
 * Select the **Client Type, Index, and Date Range**.
 
@@ -188,6 +202,7 @@ The development process involved defining the market requirements, testing each 
 ![Long Short Ratio](Images/4.%20LS%20Ratio.png)
 
 <div align="center"><b>5. Options Open Interest</b></div>
+<div align="center"><img src="https://raw.githubusercontent.com/SupreetTarwarkar/SupreetTarwarkar/main/Profile-Assets/skill-line-white.svg" width="62%" alt=""/></div>
 
 * Select the **F&O Symbol, Expiry, and Date**.
 
@@ -206,6 +221,7 @@ The development process involved defining the market requirements, testing each 
 ![Options Open Interest](Images/5.%20Options%20Open%20Interest.png)
 
 <div align="center"><b>6. Stock Futures</b></div>
+<div align="center"><img src="https://raw.githubusercontent.com/SupreetTarwarkar/SupreetTarwarkar/main/Profile-Assets/skill-line-white.svg" width="62%" alt=""/></div>
 
 * Select the **Stock Futures symbol, Expiry, and Date Range**.
 
@@ -220,6 +236,7 @@ The development process involved defining the market requirements, testing each 
 ![Stock Futures](Images/6.%20Stock%20Futures.png)
 
 <div align="center"><b>7. Stock & Delivery</b></div>
+<div align="center"><img src="https://raw.githubusercontent.com/SupreetTarwarkar/SupreetTarwarkar/main/Profile-Assets/skill-line-white.svg" width="62%" alt=""/></div>
 
 * Search and select the **Stock Symbol and Date Range**.
 
@@ -237,6 +254,7 @@ The development process involved defining the market requirements, testing each 
 
 <div align="center"><img src="https://raw.githubusercontent.com/SupreetTarwarkar/SupreetTarwarkar/main/Profile-Assets/section-line.svg" width="82%" alt="section divider"/></div>
 <div align="center"><b>8. KEY FEATURES</b></div>
+<div align="center"><img src="https://raw.githubusercontent.com/SupreetTarwarkar/SupreetTarwarkar/main/Profile-Assets/skill-line-white.svg" width="62%" alt=""/></div>
 
 * Price and market indicators displayed together for direct comparison on the same screen.
 
@@ -268,13 +286,16 @@ The development process involved defining the market requirements, testing each 
 
 <div align="center"><img src="https://raw.githubusercontent.com/SupreetTarwarkar/SupreetTarwarkar/main/Profile-Assets/section-line.svg" width="82%" alt="section divider"/></div>
 <div align="center"><b>9. CHALLENGES & LEARNINGS</b></div>
+<div align="center"><img src="https://raw.githubusercontent.com/SupreetTarwarkar/SupreetTarwarkar/main/Profile-Assets/skill-line-white.svg" width="62%" alt=""/></div>
 
 The main development problems, debugging process, source migration, custom visual iterations, Gateway issues, bookmark management, and deployment learnings are documented separately.
 
 <div align="center"><b>[Challenges Faced and Key Learnings](Challenges-and-Learnings/README.md)</b></div>
+<div align="center"><img src="https://raw.githubusercontent.com/SupreetTarwarkar/SupreetTarwarkar/main/Profile-Assets/skill-line-white.svg" width="62%" alt=""/></div>
 
 <div align="center"><img src="https://raw.githubusercontent.com/SupreetTarwarkar/SupreetTarwarkar/main/Profile-Assets/section-line.svg" width="82%" alt="section divider"/></div>
 <div align="center"><b>10. PROJECT WALKTHROUGH VIDEO</b></div>
+<div align="center"><img src="https://raw.githubusercontent.com/SupreetTarwarkar/SupreetTarwarkar/main/Profile-Assets/skill-line-white.svg" width="62%" alt=""/></div>
 
 A full video walkthrough explaining how to read the data, navigate the pages, and use the dashboard is available here:
 
@@ -282,6 +303,7 @@ A full video walkthrough explaining how to read the data, navigate the pages, an
 
 <div align="center"><img src="https://raw.githubusercontent.com/SupreetTarwarkar/SupreetTarwarkar/main/Profile-Assets/section-line.svg" width="82%" alt="section divider"/></div>
 <div align="center"><b>11. AUTHOR</b></div>
+<div align="center"><img src="https://raw.githubusercontent.com/SupreetTarwarkar/SupreetTarwarkar/main/Profile-Assets/skill-line-white.svg" width="62%" alt=""/></div>
 
 **Supreet Jayant Tarwarkar**
 
