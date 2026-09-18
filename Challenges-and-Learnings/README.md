@@ -18,16 +18,16 @@ This section documents the important problems, how they were identified, how the
 
 - The visual needed features such as:
 
-  - OHLC Candles
-  - Volume
-  - Candle / Line switching
-  - Crosshair
-  - Hover values
-  - Tooltips
-  - Axis controls
-  - Date scrolling
-  - Custom formatting
-  - Dynamic market fields
+- OHLC Candles
+- Volume
+- Candle / Line switching
+- Crosshair
+- Hover values
+- Tooltips
+- Axis controls
+- Date scrolling
+- Custom formatting
+- Dynamic market fields
 
 - Because of these limitations, a custom **Candlestick visual** was developed using ChatGPT-assisted coding.
 
@@ -112,11 +112,11 @@ Examples included:
 
 - Differences could occur because of:
 
-  - Category spacing
-  - Plot-area margins
-  - Axis padding
-  - Date positioning
-  - Independent visual behaviour
+- Category spacing
+- Plot-area margins
+- Axis padding
+- Date positioning
+- Independent visual behaviour
 
 - For financial analysis, the supporting value for a trading date needed to appear directly below the candle for the same trading date.
 
@@ -140,14 +140,14 @@ Examples included:
 
 - Testing included:
 
-  - Bar mode
-  - Line mode
-  - Bar / Line switching
-  - Date alignment
-  - Axis spacing
-  - Labels
-  - Formatting controls
-  - Scrolling behaviour
+- Bar mode
+- Line mode
+- Bar / Line switching
+- Date alignment
+- Axis spacing
+- Labels
+- Formatting controls
+- Scrolling behaviour
 
 - After testing the visual inside the complete dashboard, some unnecessary features were removed.
 
@@ -182,13 +182,13 @@ Examples included:
 
 - Testing included:
 
-  - Price + OI classification
-  - Colours
-  - Legends
-  - Axis behaviour
-  - Scrolling
-  - Category completeness
-  - Integration with the Candlestick visual
+- Price + OI classification
+- Colours
+- Legends
+- Axis behaviour
+- Scrolling
+- Category completeness
+- Integration with the Candlestick visual
 
 - Earlier versions contained additional viewing modes.
 
@@ -208,14 +208,14 @@ Examples included:
 
 - The required visual needed to support:
 
-  - CE Open Interest
-  - PE Open Interest
-  - Change in CE OI
-  - Change in PE OI
-  - ATM reference
-  - Expiry selection
-  - Cumulative OI
-  - Strike-range controls
+- CE Open Interest
+- PE Open Interest
+- Change in CE OI
+- Change in PE OI
+- ATM reference
+- Expiry selection
+- Cumulative OI
+- Strike-range controls
 
 - This led to the development of the **Options OI custom visual**.
 
@@ -225,11 +225,11 @@ Examples included:
 
 - Strike-range controls were added to allow analysis around ATM using:
 
-  - ±10 strikes
-  - ±20 strikes
-  - ±30 strikes
-  - ±40 strikes
-  - ±50 strikes
+- ±10 strikes
+- ±20 strikes
+- ±30 strikes
+- ±40 strikes
+- ±50 strikes
 
 ### Key Learning
 
@@ -253,14 +253,14 @@ Examples included:
 
 - The visual was designed to show:
 
-  - Open
-  - High
-  - Low
-  - Close
-  - Latest trading-day candle
-  - Crosshair
-  - Price label
-  - Hover information
+- Open
+- High
+- Low
+- Close
+- Latest trading-day candle
+- Crosshair
+- Price label
+- Hover information
 
 - The Single Candle visual went through approximately **4–5 test builds**.
 
@@ -320,15 +320,15 @@ Examples included:
 
 - Standardisation was required across:
 
-  - X-axis
-  - Y-axis
-  - Tooltip
-  - Range Scroller
-  - Mode selection
-  - Transparency behaviour
-  - Formatting order
-  - Selected-state controls
-  - Icons
+- X-axis
+- Y-axis
+- Tooltip
+- Range Scroller
+- Mode selection
+- Transparency behaviour
+- Formatting order
+- Selected-state controls
+- Icons
 
 - The Candlestick visual was used as the main reference.
 
@@ -400,12 +400,12 @@ Examples included:
 
 - Rebuilding the complete report would have affected:
 
-  - Visuals
-  - Relationships
-  - DAX
-  - Filters
-  - Custom visual field mappings
-  - Other report logic
+- Visuals
+- Relationships
+- DAX
+- Filters
+- Custom visual field mappings
+- Other report logic
 
 - The new NSE data was therefore transformed so that it remained compatible with the existing report structure as much as possible.
 
@@ -467,13 +467,13 @@ Examples included:
 
 - Remaining dependencies could exist through:
 
-  - Power Query queries
-  - Referenced queries
-  - Relationships
-  - Calculated columns
-  - Calculated tables
-  - DAX measures
-  - Hidden or helper tables
+- Power Query queries
+- Referenced queries
+- Relationships
+- Calculated columns
+- Calculated tables
+- DAX measures
+- Hidden or helper tables
 
 ### Dependency Flow
 
@@ -528,24 +528,24 @@ Examples included:
 
 - Bookmarks were used for:
 
-  - Dark Theme
-  - Light Theme
-  - Sidebar ON
-  - Sidebar OFF
-  - Information popups
-  - Close buttons
-  - Visual states
-  - Expanded and collapsed layouts
+- Dark Theme
+- Light Theme
+- Sidebar ON
+- Sidebar OFF
+- Information popups
+- Close buttons
+- Visual states
+- Expanded and collapsed layouts
 
 - As the number of bookmarks increased, managing them became difficult.
 
 - Updating the wrong bookmark could unintentionally change:
 
-  - Visual visibility
-  - Layout state
-  - Selection state
-  - Slicer values
-  - Filter values
+- Visual visibility
+- Layout state
+- Selection state
+- Slicer values
+- Filter values
 
 - Bookmark Data state became especially important.
 
@@ -553,11 +553,11 @@ Examples included:
 
 - It should not change:
 
-  - Index selection
-  - Expiry
-  - Date
-  - Participant type
-  - Other slicers
+- Index selection
+- Expiry
+- Date
+- Participant type
+- Other slicers
 
 - Because of this, bookmarks were checked and updated **one by one**.
 
@@ -628,10 +628,10 @@ Example:
 
 - Local or folder-based sources may therefore require:
 
-  - On-premises Data Gateway
-  - Correct credentials
-  - Correct source mapping
-  - Service refresh configuration
+- On-premises Data Gateway
+- Correct credentials
+- Correct source mapping
+- Service refresh configuration
 
 ### Deployment Testing Flow
 
@@ -677,12 +677,12 @@ Example:
 
 - Areas checked during troubleshooting included:
 
-  - Visual overlap
-  - Object layering
-  - Bookmark target
-  - Button action
-  - Page size
-  - Public rendering behaviour
+- Visual overlap
+- Object layering
+- Bookmark target
+- Button action
+- Page size
+- Public rendering behaviour
 
 ### Final Testing Flow
 
@@ -714,11 +714,11 @@ Example:
 
 - A custom **NSE Market Data Downloader** was therefore created to:
 
-  - Check the five required NSE files
-  - Save each file into its fixed source folder
-  - Avoid downloading files that already exist
-  - Skip weekends and configured NSE holidays
-  - Retry only the files that are still missing
+- Check the five required NSE files
+- Save each file into its fixed source folder
+- Avoid downloading files that already exist
+- Skip weekends and configured NSE holidays
+- Retry only the files that are still missing
 
 - **Windows Task Scheduler** was used to automate the checks.
 
@@ -729,22 +729,22 @@ Example:
 
 - Power BI Service refreshes were then aligned after the download checks through the Gateway:
 
-  - **7:30 PM**
-  - **8:00 PM**
-  - **10:00 PM**
-  - **11:30 PM**
+- **7:30 PM**
+- **8:00 PM**
+- **10:00 PM**
+- **11:30 PM**
 
 ### Morning Fallback
 
 - Additional downloader checks run at:
 
-  - **5:45 AM**
-  - **7:15 AM**
+- **5:45 AM**
+- **7:15 AM**
 
 - Power BI refreshes follow at:
 
-  - **6:00 AM**
-  - **7:30 AM**
+- **6:00 AM**
+- **7:30 AM**
 
 - An additional **3:00 AM** service refresh is also configured as an overnight checkpoint.
 
